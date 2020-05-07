@@ -8,6 +8,7 @@ export type TooltipSize = 'small' | 'medium';
 
 export interface TooltipProps {
   dataHook?: string;
+  className?: string;
   content?: React.ReactNode;
   disabled?: boolean;
   textAlign?: TooltipTextAlign;
