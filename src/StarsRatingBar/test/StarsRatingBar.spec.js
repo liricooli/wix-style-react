@@ -43,7 +43,8 @@ describe(StarsRatingBar.displayName, () => {
     expect(await driver.getSelectedRating()).toEqual(0);
 
     await driver.selectRating(4);
-    expect(onChange.mock.calls.length).toEqual(1);
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange.mock.calls[0][0]).toEqual(4);
   });
 
   describe('hover', () => {
