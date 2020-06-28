@@ -31,12 +31,18 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    PrimaryProp: 'Hello World!',
+    readOnly: false,
+    value: 0,
+    onChange: () => {},
   },
 
   exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
+    rateCaptions: [
+      {
+        label: 'With rate captions',
+        value: ['bad', 'not good', 'ok', 'good', 'excellent'],
+      },
+    ],
   },
 
   sections: [
