@@ -69,13 +69,15 @@ export default {
 
           example({
             title: 'readOnly',
-            text: 'An examples for the read only mode',
+            text:
+              'Stars rating bar has 2 modes: readOnly and interactive. This is an example for the readOnly mode.',
             source: examples.readOnlyExample,
           }),
 
           example({
             title: 'Sizes for interactive mode',
-            text: 'The only size for this mode is large (default).',
+            text:
+              'Stars rating bar has 2 modes: readOnly and interactive. This is an example for the interactive mode. The only size for this mode is large (default).',
             source: examples.interactiveModeSizesExample,
           }),
 
@@ -87,8 +89,29 @@ export default {
 
           example({
             title: 'With rate captions',
-            text: 'Supported only in the interactive mode.',
+            text:
+              'Stars rating bar can show a rating caption which represent the rate value label. Supported only in the interactive mode.',
             source: examples.rateCaptionsExample,
+          }),
+
+          example({
+            title: 'Additional info',
+            text:
+              'Stars rating bar can show a rating caption which represent the rate value label. Supported only in the interactive mode.',
+            source: examples.additionalInfoExample,
+          }),
+
+          example({
+            title: 'Required',
+            text: 'You can add an asterisk if the field is required.',
+            source: examples.requiredExample,
+          }),
+
+          example({
+            title: 'Label Position',
+            text:
+              'StarsRatingBar’s label can be position on top, left or can be hidden. Additional properties behave accordingly.',
+            source: examples.labelPositionExample,
           }),
         ],
       }),
