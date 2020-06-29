@@ -1,3 +1,7 @@
+/**
+ * A utility function that extracts Ellipsis relevant props and wrapped Component relevant props
+ * @returns {{ellipsisProps: *, componentProps: *}}
+ */
 export const extractEllipsisProps = ({
   appendTo,
   disabled,
