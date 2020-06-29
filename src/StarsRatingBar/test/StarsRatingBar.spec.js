@@ -9,9 +9,7 @@ describe(StarsRatingBar.displayName, () => {
     starsRatingBarPrivateDriverFactory,
   );
 
-  afterEach(() => {
-    cleanup();
-  });
+  afterEach(cleanup);
 
   it('should render stars rating bar', async () => {
     const { driver } = render(<StarsRatingBar value={1} />);
