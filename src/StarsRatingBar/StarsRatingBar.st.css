@@ -9,11 +9,11 @@
 
 .star {
   -st-states: filled, empty, readOnly, hovered;
-  margin-right: 6px;
+  padding-right: 6px;
 }
 
 .starsContainer > *:last-child {
-  margin-right: 0;
+  padding-right: 0;
 }
 
 .star:filled {
