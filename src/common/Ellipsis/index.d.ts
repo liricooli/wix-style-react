@@ -5,12 +5,14 @@ export interface EllipsisProps extends TooltipCommonProps {
   className?: string;
   ellipsis?: boolean;
   showTooltip?: boolean;
-  // render: (
-  //   ref: React.Ref<T>,
-  //   ellipsisClasses: (className: string) => string,
-  // ) => React.ReactElement;
+  render<T>(
+    ref: React.Ref<T>,
+    ellipsisClasses: (className: string) => string,
+  ): React.ReactElement;
 }
 
 export default class Ellipsis extends React.PureComponent<EllipsisProps> {}
 
-export function extractEllipsisProps(...props: any[]): any[];
+export function extractEllipsisProps(
+  ...props: any[]
+): { ellipsisProps: any; componentProps: EllipsisProps };
