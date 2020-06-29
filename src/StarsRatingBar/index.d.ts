@@ -5,7 +5,7 @@ export interface StarsRatingBarProps {
   className?: string;
   size?: starRatingBarSize;
   readOnly?: boolean;
-  rateCaptions?: string[];
+  rateCaptions?: [string, string, string, string, string];
   value: starRatingBarValue;
   onChange?: (rate: number) => void;
 }
