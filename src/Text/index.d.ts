@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {EllipsisHOCProps} from '../common/EllipsisHOC';
-import {OmitPolyfill} from "../common";
+import { EllipsisProps } from '../common/Ellipsis';
+import { OmitPolyfill } from '../common';
 
 export type TextWithAsProp<T> =
   | TextAsSpanProps<T>
@@ -10,15 +10,15 @@ export type TextWithAsProp<T> =
 
 type TextAsSpanProps<T> = React.HTMLAttributes<HTMLSpanElement> &
   T & {
-  tagName?: 'span';
-  onClick?: React.MouseEventHandler<HTMLElement>;
-};
+    tagName?: 'span';
+    onClick?: React.MouseEventHandler<HTMLElement>;
+  };
 
 type TextAsAnchorProps<T> = React.AnchorHTMLAttributes<HTMLAnchorElement> &
   T & {
-  tagName: 'a';
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-};
+    tagName: 'a';
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  };
 
 type TextGenericProps<T> = T & {
   tagName: keyof OmitPolyfill<HTMLElementTagNameMap, 'a' | 'span'>;
@@ -32,7 +32,7 @@ type TextAsComponentProps<T> = T & {
   [additionalProps: string]: any;
 };
 
-export interface TextPropsBase extends EllipsisHOCProps {
+export interface TextPropsBase extends EllipsisProps {
   dataHook?: string;
   tagName?: string;
   className?: string;

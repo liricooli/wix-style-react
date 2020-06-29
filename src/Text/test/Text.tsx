@@ -20,7 +20,7 @@ function TextWithAllProps() {
       skin="standard"
       tagName="marquee"
       weight="thin"
-      appendTo={document.createElement('div')}
+      appendTo="window"
       dataHook="hook"
       ellipsis
       fixed

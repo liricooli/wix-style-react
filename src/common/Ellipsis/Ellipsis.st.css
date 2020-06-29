@@ -1,0 +1,58 @@
+:import {
+  -st-from: "../../Tooltip/Tooltip.st.css";
+  -st-default: Tooltip;
+}
+
+:import {
+  -st-from: '../../Foundation/stylable/typography.st.css';
+  -st-named: text-small-normal;
+}
+
+/* Text */
+.text {
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+  display: inline-block !important;
+  vertical-align: bottom !important;
+}
+
+/* Tooltip */
+.tooltip {
+  -st-extends: Tooltip;
+  -st-states: lineHeight(enum(textMedium, textSmall, textTiny));
+  display: inline;
+  overflow: hidden;
+  height: max-content;
+}
+
+.tooltip::popoverElement {
+  max-width: 100%;
+}
+
+/* Tooltip content */
+.content {
+  -st-mixin: text-small-normal;
+}
+
+/* Line height fix
+ * ---------------
+ * Problem: Tooltip wrap the text element with inherit line-height that might be higher than the wrapped text.
+ * Temporary solution: Setting the line-height with a static stylable state.
+ * Why temporary: IE11 compatibility + stylable3 migration isn't done yet.
+ *
+ * A better solution in the future is to set a css variable to the tooltip root element.
+ * Not yet possible because tooltip is part of wix-ui-core
+ */
+.tooltip:lineHeight(textMedium) {
+  line-height: 24px;
+}
+
+.tooltip:lineHeight(textSmall) {
+  line-height: 18px;
+}
+
+.tooltip:lineHeight(textTiny) {
+  line-height: 15px;
+}

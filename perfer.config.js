@@ -1,7 +1,7 @@
 const javascriptFiles = [
-  ['Accordion.bundle.min.js', 33],
+  ['Accordion.bundle.min.js', 46],
   ['AddItem.bundle.min.js', 44],
-  ['AnnouncementModalLayout.bundle.min.js', 22],
+  ['AnnouncementModalLayout.bundle.min.js', 48],
   ['AudioPlayer.bundle.min.js', 53],
   ['AutoComplete.bundle.min.js', 71],
   ['AutoCompleteWithLabel.bundle.min.js', 69],
