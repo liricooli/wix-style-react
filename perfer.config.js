@@ -137,7 +137,7 @@ const javascriptFiles = [
   ['VerticalTabs.bundle.min.js', 13],
   ['VerticalTabsItem.bundle.min.js', 13],
   ['WarningIndicator.bundle.min.js', 40],
-  ['TagList.bundle.min.js', 10],
+  ['TagList.bundle.min.js', 16.521],
 ];
 
 const cssFiles = [
