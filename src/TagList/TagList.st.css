@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.root > * {
+  margin: 3px 0;
+}
+
+.root > *:not(:last-child) {
+  margin-right: 6px;
+}
+
+
