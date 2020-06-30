@@ -3,6 +3,9 @@
   -st-named: Y10, D10-20, D20;
 }
 
+.root {
+}
+
 .starsContainer {
   display: inline-block;
 }
@@ -12,7 +15,7 @@
   padding-right: 6px;
 }
 
-.starsContainer > *:last-child {
+.starsContainer > .star:last-child {
   padding-right: 0;
 }
 
@@ -24,7 +27,7 @@
   color: value(Y10);
 }
 .star:readOnly {
-  margin-right: 0;
+  padding-right: 0;
 }
 
 .star:readOnly:empty {

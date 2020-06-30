@@ -99,26 +99,6 @@ export default {
               'Stars rating bar can show a rating caption which represent the rate value label. Supported only in the interactive mode.',
             source: examples.rateCaptionsExample,
           }),
-
-          example({
-            title: 'Additional info',
-            text:
-              'Stars rating bar can show a rating caption which represent the rate value label. Supported only in the interactive mode.',
-            source: examples.additionalInfoExample,
-          }),
-
-          example({
-            title: 'Required',
-            text: 'You can add an asterisk if the field is required.',
-            source: examples.requiredExample,
-          }),
-
-          example({
-            title: 'Label Position',
-            text:
-              'StarsRatingBar’s label can be position on top, left or can be hidden. Additional properties behave accordingly.',
-            source: examples.labelPositionExample,
-          }),
         ],
       }),
 
