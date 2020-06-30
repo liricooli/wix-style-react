@@ -18,19 +18,30 @@ describe(StarsRatingBar.displayName, () => {
   });
 
   describe('rate caption', () => {
-    it('should display the correct rate caption', async () => {
+    it.each([
+      { index: 1, text: 'bad' },
+      { index: 2, text: 'not good' },
+      { index: 3, text: 'ok' },
+      { index: 4, text: 'good' },
+      { index: 5, text: 'excellent' },
+    ])('should display the correct rate caption', async rateCaption => {
       const rateCaptions = ['bad', 'not good', 'ok', 'good', 'excellent'];
       const { driver } = render(
-        <StarsRatingBar value={3} rateCaptions={rateCaptions} />,
+        <StarsRatingBar
+          value={rateCaption.index}
+          rateCaptions={rateCaptions}
+        />,
       );
 
-      expect(await driver.getDisplayedRateCaptionLabel()).toEqual('ok');
+      expect(await driver.getDisplayedRateCaptionLabel()).toEqual(
+        rateCaption.text,
+      );
     });
 
     it('should not display a rate caption', async () => {
       const { driver } = render(<StarsRatingBar value={2} />);
 
-      expect(await driver.isRatingCaptionExists()).toBeFalsy();
+      expect(await driver.isRatingCaptionExists()).toBe(false);
     });
   });
 
@@ -55,16 +66,27 @@ describe(StarsRatingBar.displayName, () => {
       expect(await driver.getSelectedRating()).toEqual(3);
     });
 
-    it('should display the rate caption of the hovered star', async () => {
-      const rateCaptions = ['bad', 'not good', 'ok', 'good', 'excellent'];
-      const { driver } = render(
-        <StarsRatingBar value={3} rateCaptions={rateCaptions} />,
-      );
+    it.each([
+      { index: 1, text: 'bad' },
+      { index: 2, text: 'not good' },
+      { index: 3, text: 'ok' },
+      { index: 4, text: 'good' },
+      { index: 5, text: 'excellent' },
+    ])(
+      'should display the rate caption of the hovered star',
+      async rateCaption => {
+        const rateCaptions = ['bad', 'not good', 'ok', 'good', 'excellent'];
+        const { driver } = render(
+          <StarsRatingBar value={3} rateCaptions={rateCaptions} />,
+        );
 
-      expect(await driver.getSelectedRating()).toEqual(3);
+        expect(await driver.getSelectedRating()).toEqual(3);
 
-      await driver.hoverOnStar(4);
-      expect(await driver.getDisplayedRateCaptionLabel()).toEqual('good');
-    });
+        await driver.hoverOnStar(rateCaption.index);
+        expect(await driver.getDisplayedRateCaptionLabel()).toEqual(
+          rateCaption.text,
+        );
+      },
+    );
   });
 });
