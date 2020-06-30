@@ -132,6 +132,7 @@ require('../src/TableActionCell/docs/index.story');
 require('../src/TableToolbar/docs/ToolbarStory');
 require('../src/Tabs/docs/index.story');
 require('../src/Tag/docs/index.story');
+require('../src/TagList/docs/index.story');
 require('../src/Text/docs/index.story');
 require('../src/TextButton/docs/index.story');
 require('../src/Thumbnail/docs/index.story');
@@ -185,6 +186,3 @@ require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
 // require('../src/CustomModalLayout/docs/design.story'); // 9.3 Custom Modal (WIP)
 require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 require('../src/MessageBox/docs');
-
-// TODO: move to correct position
-require('../src/TagList/docs/index.story');
