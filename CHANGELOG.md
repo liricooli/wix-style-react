@@ -14,6 +14,33 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+- `<Tooltip/>` - Inherit appendTo type from popover [#5632](https://github.com/wix/wix-style-react/pull/5632)
+
+## 8.27.0 - 2020-06-30
+### Internal
+- `<Ellipsis/>` - [internal] - New component to replace EllipsisHOC [#5622](https://github.com/wix/wix-style-react/pull/5622)
+
+## 8.26.0 - 2020-06-30
+### Added
+- `<NoBorderInput/>` - adding unidriver [#5612](https://github.com/wix/wix-style-react/pull/5612)
+- `<Modal/>` - Testkit - export getContent method [#5611](https://github.com/wix/wix-style-react/pull/5611)
+
+### Changed
+- `<Autocomplete/>` emptyMessage proptype [#5609](https://github.com/wix/wix-style-react/pull/5609)
+- `<InputArea/>` - Cancel debounced function on unmount and some other tweaks to reduce noise in tests [#5610](https://github.com/wix/wix-style-react/pull/5610)
+- `<Breadcrumbs/>`- stylable migration [#5592](https://github.com/wix/wix-style-react/pull/5592)
+- `<Notificaiton/>`- implementing `<Notification/>` with Animator to fix the component animation issue[#5603](https://github.com/wix/wix-style-react/pull/5603)
+- `<ScrollableContainer/>` - Adding support for passing data-attributes inside, they will be positioned on the root element the same as data-hook and className [#5605](https://github.com/wix/wix-style-react/pull/5605)
+
+## 8.25.0 - 2020-06-25
+
+### Changed
+- `<Tabs/>`- migrating to stylable [#5557](https://github.com/wix/wix-style-react/pull/5557)
+
+### Fixed
+- `<Carousel/>`- adding paths to scss file [#5616](https://github.com/wix/wix-style-react/pull/5616)
+
 ## 8.24.0 - 2020-06-24
 
 ### Changed

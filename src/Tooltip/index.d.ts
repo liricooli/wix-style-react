@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { Placement } from 'wix-ui-core/dist/src/components/popover/Popover.d';
+import { Placement, AppendTo } from 'wix-ui-core/dist/src/components/popover/Popover.d';
 import { MoveByOffset } from '../common';
 
-export type TooltipAppendTo = 'window' | 'scrollParent' | 'viewport' | 'parent';
 export type TooltipTextAlign = 'center' | 'start';
 export type TooltipSize = 'small' | 'medium';
 
@@ -14,7 +13,8 @@ export interface TooltipProps {
   enterDelay?: number;
   exitDelay?: number;
   moveBy?: MoveByOffset;
-  appendTo?: TooltipAppendTo;
+  moveArrowTo?: number;
+  appendTo?: AppendTo;
   flip?: boolean;
   fixed?: boolean;
   maxWidth?: React.CSSProperties['maxWidth'];
@@ -27,4 +27,4 @@ export interface TooltipProps {
   open?: () => void;
 }
 
-export default class Tooltip extends React.PureComponent<TooltipProps>{}
+export default class Tooltip extends React.PureComponent<TooltipProps> {}
