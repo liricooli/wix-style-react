@@ -1,23 +1,24 @@
 import * as React from 'react';
-import {TagProps} from "../Tag";
+import Tag, {TagProps} from "../Tag";
 
 export interface TagListProps {
   dataHook?: string;
+  tags: Tag[];
+  actionButton?: ActionButtonProps;
 }
 
-interface ActionProps {
-  dataHook?: string;
+interface ActionButtonProps {
+  label?: string;
   onClick?(): void
 }
 
-declare const Tag: React.FunctionComponent<TagProps>;
-declare const Action: React.FunctionComponent<ActionProps>;
+
+declare const TagItem: React.FunctionComponent<TagProps>;
 
 
 
 export default class TagList extends React.PureComponent<TagListProps>{
-  static Tag: typeof Tag;
-  static Action: typeof Action;
+  static Tag: typeof TagItem;
 }
 
 

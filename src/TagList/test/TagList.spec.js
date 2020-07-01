@@ -12,8 +12,67 @@ describe(TagList.displayName, () => {
   });
 
   it('should render', async () => {
-    const { driver } = render(<TagList />);
+    const { driver } = render(
+      <TagList
+        tags={[
+          <TagList.Tag key="1" id="1">
+            Some Tag
+          </TagList.Tag>,
+        ]}
+      />,
+    );
 
     expect(await driver.exists()).toBe(true);
+  });
+
+  it('should not show action button', async () => {
+    const { driver } = render(
+      <TagList
+        tags={[
+          <TagList.Tag key="1" id="1">
+            Some Tag
+          </TagList.Tag>,
+        ]}
+      />,
+    );
+
+    expect(await driver.actionButtonExists()).toBe(false);
+  });
+
+  it('should show action button', async () => {
+    const actionButtonLabel = 'Do Action';
+    const { driver } = render(
+      <TagList
+        tags={[
+          <TagList.Tag key="1" id="1">
+            Some Tag
+          </TagList.Tag>,
+        ]}
+        actionButton={{
+          label: actionButtonLabel,
+        }}
+      />,
+    );
+
+    expect(await driver.actionButtonExists()).toBe(true);
+    expect(await driver.actionButtonLabel()).toBe(actionButtonLabel);
+  });
+
+  it('should click action button', async () => {
+    const onActionButtonClickFn = jest.fn();
+    const { driver } = render(
+      <TagList
+        tags={[
+          <TagList.Tag key="1" id="1">
+            Some Tag
+          </TagList.Tag>,
+        ]}
+        actionButton={{
+          onClick: onActionButtonClickFn,
+        }}
+      />,
+    );
+    await driver.clickActionButton();
+    expect(onActionButtonClickFn).toHaveBeenCalled();
   });
 });

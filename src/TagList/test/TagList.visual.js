@@ -14,6 +14,26 @@ const tests = [
         it: 'default', // prop variation (e.g. small)
         props: {
           dataHook: 'datahook',
+          tags: [],
+        },
+      },
+    ],
+  },
+  {
+    describe: 'actionButton',
+    its: [
+      {
+        it: 'none',
+        props: {
+          actionButton: null,
+        },
+      },
+      {
+        it: 'with label',
+        props: {
+          actionButton: {
+            label: 'action button',
+          },
         },
       },
     ],

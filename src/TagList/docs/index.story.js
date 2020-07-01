@@ -30,10 +30,12 @@ export default {
     header({
       sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${TagList.displayName}/`,
       component: (
-        <TagList>
-          <TagList.Tag id="1">Tag 1</TagList.Tag>
-          <TagList.Action>Clear All</TagList.Action>
-        </TagList>
+        <TagList
+          tags={[<TagList.Tag id="1">Tag 1</TagList.Tag>]}
+          actionButton={{
+            label: 'Clear All',
+          }}
+        />
       ),
     }),
 
@@ -55,8 +57,7 @@ export default {
           example({
             title: 'Simple Usage',
             text: 'Showing 2 tags and action button',
-            source:
-              '<TagList><TagList.Tag id="1">Tag 1</TagList.Tag><TagList.Tag id="2">Tag 2</TagList.Tag><TagList.Action>Clear All</TagList.Action></TagList>',
+            source: `<TagList tags={[<TagList.Tag id="1">Tag 1</TagList.Tag>, <TagList.Tag id="2">Tag 2</TagList.Tag>]} actionButton={{onClick: () => console.log('clicked'), label: 'Clear All'}} />`,
           }),
         ],
       }),

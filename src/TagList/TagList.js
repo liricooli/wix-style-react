@@ -5,10 +5,18 @@ import styles from './TagList.st.css';
 import Tag from '../Tag';
 
 /** TagList */
-const TagList = ({ dataHook, children }) => {
+const TagList = ({ dataHook, tags, actionButton }) => {
   return (
     <div className={styles.root} data-hook={dataHook}>
-      {children}
+      {tags}
+      {actionButton && (
+        <TagListAction
+          dataHook="tag-list-action"
+          onClick={actionButton.onClick}
+        >
+          {actionButton.label}
+        </TagListAction>
+      )}
     </div>
   );
 };
@@ -28,15 +36,17 @@ TagListAction.propTypes = {
 };
 
 TagList.Tag = TagListItem;
-TagList.Action = TagListAction;
 
 TagList.displayName = 'TagList';
 
 TagList.propTypes = {
   /** Applied as data-hook HTML attribute that can be used in the tests */
   dataHook: PropTypes.string,
-
-  children: PropTypes.node,
+  tags: PropTypes.arrayOf(PropTypes.node),
+  actionButton: PropTypes.shape({
+    onClick: PropTypes.func,
+    label: PropTypes.string,
+  }),
 };
 
 export default TagList;
