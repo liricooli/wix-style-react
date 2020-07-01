@@ -14,6 +14,9 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
+import StructureExampleRaw from '!raw-loader!./examples/Structure';
+import CustomizingTagsExampleRaw from '!raw-loader!./examples/CustomizingTags';
+import UsageExampleRaw from '!raw-loader!./examples/Usage';
 
 import TagList from '..';
 
@@ -45,7 +48,8 @@ export default {
         sections: [
           description({
             title: 'Description',
-            text: 'Layout component to display list of tags',
+            text:
+              'TagList is a group of tags and buttons. It shows the summary of picked options. Use it to display applied filters or keywords.',
           }),
 
           importExample(),
@@ -55,9 +59,22 @@ export default {
           title('Examples'),
 
           example({
-            title: 'Simple Usage',
-            text: 'Showing 2 tags and action button',
-            source: `<TagList tags={[<TagList.Tag id="1">Tag 1</TagList.Tag>, <TagList.Tag id="2">Tag 2</TagList.Tag>]} actionButton={{onClick: () => console.log('clicked'), label: 'Clear All'}} />`,
+            title: 'Structure',
+            text:
+              'Component consists of any number tag and button subcomponents.',
+            source: StructureExampleRaw,
+          }),
+
+          example({
+            title: 'Customizing Tags',
+            text: `Component allows to pass all <Tag/> properties except size.`,
+            source: CustomizingTagsExampleRaw,
+          }),
+
+          example({
+            title: 'Usage',
+            text: `Use it inside table SubToolbar to display applied filters.`,
+            source: UsageExampleRaw,
           }),
         ],
       }),
