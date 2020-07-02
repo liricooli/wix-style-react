@@ -66,6 +66,7 @@ class InteractiveModeStar extends React.PureComponent {
     return (
       <button
         data-hook={dataHook}
+        data-index={index}
         {...styles('root', {}, this.props)}
         onClick={() => this._onClick(index)}
         onMouseEnter={() => this._onMouseEnter(index)}
@@ -77,13 +78,11 @@ class InteractiveModeStar extends React.PureComponent {
           <StarFilledIcon
             {...commonProps}
             data-hook={dataHooks.filledStar}
-            data-index={index}
             {...styles('star', { filled: true, hovered: isCurrentStarHovered })}
           />
         ) : (
           <StarIcon
             {...commonProps}
-            data-index={index}
             {...styles('star', { empty: true, hovered: isCurrentStarHovered })}
           />
         )}
