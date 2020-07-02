@@ -23,16 +23,31 @@ class InteractiveModeStar extends React.PureComponent {
     this.props.onClick(index);
   };
 
+  _onFocus = () => {
+    const { focusableOnFocus, index } = this.props;
+
+    // We would like to change the rate caption label when focus / hover
+    this.props.onMouseEnter(index);
+
+    focusableOnFocus();
+  };
+
+  _onBlur = () => {
+    const { focusableOnBlur } = this.props;
+
+    // We would like to change the rate caption label when focus / hover
+    this.props.onMouseLeave();
+
+    focusableOnBlur();
+  };
+
   render() {
     const {
       dataHook,
-      className,
       selectedStarIndex,
       index,
       starsRatingBarSize,
       hoveredStarIndex,
-      focusableOnFocus,
-      focusableOnBlur,
     } = this.props;
 
     const isStarsHovered = hoveredStarIndex !== 0;
@@ -52,11 +67,11 @@ class InteractiveModeStar extends React.PureComponent {
       <button
         data-hook={dataHook}
         {...styles('root', {}, this.props)}
+        onClick={() => this._onClick(index)}
         onMouseEnter={() => this._onMouseEnter(index)}
         onMouseLeave={() => this._onMouseLeave()}
-        onClick={() => this._onClick(index)}
-        onFocus={focusableOnFocus}
-        onBlur={focusableOnBlur}
+        onFocus={this._onFocus}
+        onBlur={this._onBlur}
       >
         {isFilledStar ? (
           <StarFilledIcon
