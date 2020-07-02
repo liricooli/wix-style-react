@@ -12,22 +12,10 @@
 
 .star {
   -st-states: filled, empty, readOnly, hovered;
-  padding-right: 6px;
 }
 
-.starsContainer > .star:last-child {
-  padding-right: 0;
-}
-
-.star:filled {
+.star:readOnly:filled {
   color: value(Y10);
-}
-
-.star:empty {
-  color: value(Y10);
-}
-.star:readOnly {
-  padding-right: 0;
 }
 
 .star:readOnly:empty {

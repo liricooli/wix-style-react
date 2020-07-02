@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Text from '../Text';
 import styles from './StarsRatingBar.st.css';
 import {
   dataHooks,
@@ -9,8 +8,11 @@ import {
   starRatingBarSizes,
   starRatingBarSizesInPx,
 } from './constants';
+
+import Text from '../Text';
+import InteractiveModeStar from './components/InteractiveModeStar';
+
 import StarFilledIcon from 'wix-ui-icons-common/StarFilled';
-import StarIcon from 'wix-ui-icons-common/Star';
 
 /** Star Rating Component  */
 class StarsRatingBar extends React.PureComponent {
@@ -68,12 +70,25 @@ class StarsRatingBar extends React.PureComponent {
   };
 
   _renderStars = () => {
-    const { readOnly } = this.props;
+    const { readOnly, value } = this.props;
+    const { starsRatingBarSize, hoveredStarIndex } = this.state;
 
     return Object.values(starIndexes).map(ratingValue => {
-      return readOnly
-        ? this._renderReadOnlyModeStar(ratingValue)
-        : this._renderInteractiveModeStar(ratingValue);
+      return readOnly ? (
+        this._renderReadOnlyModeStar(ratingValue)
+      ) : (
+        <InteractiveModeStar
+          className="InteractiveModeStar"
+          key={ratingValue}
+          starsRatingBarSize={starsRatingBarSize}
+          index={ratingValue}
+          selectedStarIndex={value}
+          hoveredStarIndex={hoveredStarIndex}
+          onClick={this._onStarIconClick}
+          onMouseEnter={this._onMouseEnter}
+          onMouseLeave={this._onMouseLeave}
+        />
+      );
     });
   };
 
@@ -92,43 +107,6 @@ class StarsRatingBar extends React.PureComponent {
           empty: !isFilledStar,
         })}
         size={starRatingBarSizesInPx[starsRatingBarSize]}
-      />
-    );
-  };
-
-  _renderInteractiveModeStar = ratingValue => {
-    const { value } = this.props;
-    const { starsRatingBarSize, hoveredStarIndex } = this.state;
-
-    const isStarsHovered = hoveredStarIndex !== 0;
-    const isCurrentStarHovered = hoveredStarIndex === ratingValue;
-
-    // If the user hovers on a star the value should be compatible to the value of the hovered star
-    // otherwise the value should be compatible to the selected value.
-    const isFilledStar = isStarsHovered
-      ? ratingValue <= hoveredStarIndex
-      : ratingValue <= value;
-
-    const commonProps = {
-      key: ratingValue,
-      size: starRatingBarSizesInPx[starsRatingBarSize],
-      onMouseEnter: () => this._onMouseEnter(ratingValue),
-      onMouseLeave: () => this._onMouseLeave(),
-      onClick: () => this._onStarIconClick(ratingValue),
-    };
-
-    return isFilledStar ? (
-      <StarFilledIcon
-        {...commonProps}
-        data-hook={dataHooks.filledStar}
-        data-index={ratingValue}
-        {...styles('star', { filled: true, hovered: isCurrentStarHovered })}
-      />
-    ) : (
-      <StarIcon
-        {...commonProps}
-        data-index={ratingValue}
-        {...styles('star', { empty: true, hovered: isCurrentStarHovered })}
       />
     );
   };
