@@ -7,13 +7,19 @@ import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
 function tagListWithMandatoryProps() {
-  return <TagList />;
+  return <TagList tags={[<TagList.Tag id="0">Some Tag</TagList.Tag>]} />;
 }
 
 function tagListWithAllProps() {
   return (
     <TagList
       dataHook="dataHook"
+      tags={[<TagList.Tag id="0">Some Tag</TagList.Tag>]}
+      actionButton={{
+       label: 'action',
+        onClick: () => null
+
+      }}
     />
   );
 }

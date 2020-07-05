@@ -7,9 +7,7 @@ import { tagListPrivateDriverFactory } from './TagList.private.uni.driver';
 describe(TagList.displayName, () => {
   const render = createRendererWithUniDriver(tagListPrivateDriverFactory);
 
-  afterEach(() => {
-    cleanup();
-  });
+  afterEach(cleanup);
 
   it('should render', async () => {
     const { driver } = render(

@@ -14,7 +14,7 @@ const tests = [
         it: 'default', // prop variation (e.g. small)
         props: {
           dataHook: 'datahook',
-          tags: [],
+          tags: [<TagList.Tag id="0">Tag</TagList.Tag>],
         },
       },
     ],
@@ -25,12 +25,14 @@ const tests = [
       {
         it: 'none',
         props: {
+          tags: [<TagList.Tag id="0">Tag</TagList.Tag>],
           actionButton: null,
         },
       },
       {
         it: 'with label',
         props: {
+          tags: [<TagList.Tag id="0">Tag</TagList.Tag>],
           actionButton: {
             label: 'action button',
           },

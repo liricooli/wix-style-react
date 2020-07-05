@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Tag, {TagProps} from "../Tag";
+import {TagProps} from "../Tag";
 
 export interface TagListProps {
   dataHook?: string;
-  tags: Tag[];
+  tags: React.ReactNode[];
   actionButton?: ActionButtonProps;
 }
 

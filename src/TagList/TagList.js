@@ -20,11 +20,19 @@ const TagList = ({ dataHook, tags, actionButton }) => {
     </div>
   );
 };
-const TagListItem = props => <Tag {...props} size="small" />;
+const TagListItem = props => (
+  <Tag {...props} className="tag-list-item" size="small" />
+);
 TagListItem.propTypes = Tag.propTypes;
 
 const TagListAction = ({ dataHook, onClick, children }) => (
-  <Button skin="inverted" size="tiny" dataHook={dataHook} onClick={onClick}>
+  <Button
+    skin="inverted"
+    size="tiny"
+    className="tag-list-item"
+    dataHook={dataHook}
+    onClick={onClick}
+  >
     {children}
   </Button>
 );
@@ -42,7 +50,11 @@ TagList.displayName = 'TagList';
 TagList.propTypes = {
   /** Applied as data-hook HTML attribute that can be used in the tests */
   dataHook: PropTypes.string,
+
+  /** List of tags to be rendered */
   tags: PropTypes.arrayOf(PropTypes.node),
+
+  /** Action button label and onClick handler */
   actionButton: PropTypes.shape({
     onClick: PropTypes.func,
     label: PropTypes.string,

@@ -1,13 +1,10 @@
 /* eslint-disable */
 
-class Usage extends React.Component {
-  render() {
-    return <Layout cols={1} gap="6px">
-      <Text>Applied filters: </Text>
-      <TagList tags={[ <TagList.Tag id="1">In Progress</TagList.Tag>, <TagList.Tag id="2">Canceled By Client</TagList.Tag>, <TagList.Tag id="3">Last 7 Days</TagList.Tag>]} actionButton={{label: 'Clear All'}} />
-    </Layout>
-
-  }
+function Usage() {
+  const [currentTags, setTags] = React.useState([{id: '1', label: 'In Progress'}, {id: '2', label: 'Canceled By Client'}, {id: '3', label: 'Last 7 Days'}])
+  const clearAll = () => setTags([]);
+  const removeTag = tagId => setTags(currentTags.filter(({id}) => id !== tagId))
+  return <FormField label="Applied filters:">
+    <TagList tags={currentTags.map(({id, label})=> <TagList.Tag id={id} removable onRemove={() => removeTag(id)} >{label}</TagList.Tag>)} actionButton={{label: 'Clear All', onClick: clearAll}} />
+  </FormField>
 }
-
-

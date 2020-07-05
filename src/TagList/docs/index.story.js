@@ -10,6 +10,7 @@ import {
   example as baseExample,
   api,
   testkit,
+  playground,
 } from 'wix-storybook-utils/Sections';
 
 import { storySettings } from '../test/storySettings';
@@ -82,6 +83,7 @@ export default {
       ...[
         { title: 'API', sections: [api()] },
         { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
       ].map(tab),
     ]),
   ],

@@ -4,11 +4,11 @@
   flex-wrap: wrap;
 }
 
-.root > * {
+.root > .tag-list-item {
   margin: 3px 0;
 }
 
-.root > *:not(:last-child) {
+.root > .tag-list-item:not(:last-child) {
   margin-right: 6px;
 }
 
