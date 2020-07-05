@@ -27,7 +27,7 @@ class InteractiveModeStar extends React.PureComponent {
     const { focusableOnFocus, index } = this.props;
 
     // We would like to change the rate caption label when focus / hover
-    this.props.onMouseEnter(index);
+    this.props.handleFocus(index);
 
     focusableOnFocus();
   };
@@ -36,7 +36,7 @@ class InteractiveModeStar extends React.PureComponent {
     const { focusableOnBlur } = this.props;
 
     // We would like to change the rate caption label when focus / hover
-    this.props.onMouseLeave();
+    this.props.handleBlur();
 
     focusableOnBlur();
   };
@@ -131,6 +131,18 @@ InteractiveModeStar.propTypes = {
    * function() => void
    */
   onMouseLeave: PropTypes.func,
+
+  /** A Handler for focus
+   * ##### Signature:
+   * function() => void
+   */
+  handleFocus: PropTypes.func,
+
+  /** A Handler for blur
+   * ##### Signature:
+   * function() => void
+   */
+  handleBlur: PropTypes.func,
 };
 
 export default withFocusable(InteractiveModeStar);

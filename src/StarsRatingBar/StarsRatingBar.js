@@ -57,6 +57,10 @@ class StarsRatingBar extends React.PureComponent {
     return starRatingBarSizes.large;
   };
 
+  _onStarIconClick = ratingValue => {
+    this.props.onChange(ratingValue);
+  };
+
   _onMouseEnter = ratingValue => {
     this.setState({ hoveredStarIndex: ratingValue });
   };
@@ -65,8 +69,12 @@ class StarsRatingBar extends React.PureComponent {
     this.setState({ hoveredStarIndex: 0 });
   };
 
-  _onStarIconClick = ratingValue => {
-    this.props.onChange(ratingValue);
+  _handleFocus = ratingValue => {
+    this.setState({ hoveredStarIndex: ratingValue });
+  };
+
+  _handleBlur = () => {
+    this.setState({ hoveredStarIndex: 0 });
   };
 
   _renderStars = () => {
@@ -87,6 +95,8 @@ class StarsRatingBar extends React.PureComponent {
           onClick={this._onStarIconClick}
           onMouseEnter={this._onMouseEnter}
           onMouseLeave={this._onMouseLeave}
+          handleFocus={this._handleFocus}
+          handleBlur={this._handleBlur}
         />
       );
     });
