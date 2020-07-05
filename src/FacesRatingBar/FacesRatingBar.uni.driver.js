@@ -5,16 +5,10 @@ export const facesRatingBarDriverFactory = (base, body) => {
   return {
     ...baseUniDriverFactory(base, body),
 
-    /** Get the current count */
-    getCountText: async () =>
-      base.$(`[data-hook="${dataHooks.facesRatingBarCount}"]`).text(),
+    /** Select the faces rating bar value */
+    selectRating: async value => {},
 
-    /** Click the button */
-    clickButton: async () =>
-      base.$(`[data-hook="${dataHooks.facesRatingBarButton}"]`).click(),
-
-    /** Get the button's text */
-    getButtonText: async () =>
-      base.$(`[data-hook="${dataHooks.facesRatingBarButton}"]`).text(),
+    /** Return the selected rating (a number between 0 to 5) */
+    getSelectedRating: async () => {},
   };
 };

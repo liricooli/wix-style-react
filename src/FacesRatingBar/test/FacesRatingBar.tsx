@@ -7,7 +7,7 @@ import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
 function facesRatingBarWithMandatoryProps() {
-  return <FacesRatingBar />;
+  return <FacesRatingBar value={2} />;
 }
 
 function facesRatingBarWithAllProps() {
@@ -15,7 +15,11 @@ function facesRatingBarWithAllProps() {
     <FacesRatingBar
       dataHook="dataHook"
       className="className"
-      buttonText="buttonText"
+      size="medium"
+      readOnly={false}
+      tooltips={['Strong Negative', 'Negative', 'Neutral', 'Positive', 'Strong Positive']}
+      value={2}
+      onChange={() => {}}
     />
   );
 }

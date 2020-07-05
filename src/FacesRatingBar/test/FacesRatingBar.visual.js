@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import FacesRatingBar from '../FacesRatingBar';
 
 const commonProps = {
-  // use for repeated props across the tests (e.g. {buttonText: 'example'})
+  value: 2,
 };
 
 const tests = [

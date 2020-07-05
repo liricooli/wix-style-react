@@ -30,18 +30,32 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    buttonText: 'Hello World!',
+    readOnly: false,
+    value: 3,
+    onChange: () => {},
   },
 
   exampleProps: {
     // Put here presets of props, for more info:
     // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
+    tooltips: [
+      {
+        label: 'With tooltips',
+        value: [
+          'Strong Negative',
+          'Negative',
+          'Neutral',
+          'Positive',
+          'Strong Positive',
+        ],
+      },
+    ],
   },
 
   sections: [
     header({
       sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${FacesRatingBar.displayName}/`,
-      component: <FacesRatingBar buttonText="Click me!" />,
+      component: <FacesRatingBar value={3} />,
     }),
 
     tabs([
@@ -51,7 +65,7 @@ export default {
           description({
             title: 'Description',
             text:
-              'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+              'This component let the users the ability to share their opinion about any requested subject on a 1-5 scale.',
           }),
 
           importExample(),
@@ -63,13 +77,13 @@ export default {
           example({
             title: 'Simple Usage',
             text: 'A simple example with compact preview',
-            source: '<FacesRatingBar buttonText="Hello World!"/>',
+            source: '<FacesRatingBar value={2} />',
           }),
 
           code({
             title: 'Full Interactive Preview',
             description: 'A non compact version of same code example as above',
-            source: '<FacesRatingBar buttonText="Hello World!"/>',
+            source: '<FacesRatingBar value={2} />',
           }),
         ],
       }),
