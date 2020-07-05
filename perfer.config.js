@@ -113,7 +113,7 @@ const javascriptFiles = [
   ['SocialPreview.bundle.min.js', 35],
   ['SortableGrid.bundle.min.js', 32],
   ['SortableList.bundle.min.js', 30],
-  ['StarsRatingBar.bundle.min.js', 12],
+  ['StarsRatingBar.bundle.min.js', 37],
   ['StatisticsWidget.bundle.min.js', 47],
   ['StatisticsWidget.bundle.min.js', 47],
   ['StatusIndicator.bundle.min.js', 38],
