@@ -70,10 +70,12 @@ class StarsRatingBar extends React.PureComponent {
   };
 
   _handleFocus = ratingValue => {
+    // We would like to change the rate caption label when focus / hover
     this.setState({ hoveredStarIndex: ratingValue });
   };
 
   _handleBlur = () => {
+    // We would like to change the rate caption label when focus / hover
     this.setState({ hoveredStarIndex: 0 });
   };
 
