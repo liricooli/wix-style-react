@@ -10,16 +10,16 @@ import { dataHooks } from './constants';
 export const HorizontalTimeline = ({ steps, dataHook }) => {
   return (
     <div className={styles.root} data-hook={dataHook}>
-      {steps.map(({ label, width, type }, i) => {
+      {steps.map(({ label, width, type, icon }, i) => {
+        width = width || 'auto';
+        type = type || 'inactive';
+        icon = icon || <HorizontalTimeline.UpcomingIcon />;
+
         const isStepActive = type === 'active';
         const isNextStepActive = steps[i + 1] && steps[i + 1].type === 'active';
 
         return (
-          <div
-            className={styles.step}
-            key={i}
-            style={{ width: width || 'auto' }}
-          >
+          <div className={styles.step} key={i} style={{ width }}>
             <div className={styles.stepInner}>
               <div className={styles.topRow}>
                 <div
@@ -27,7 +27,9 @@ export const HorizontalTimeline = ({ steps, dataHook }) => {
                     [styles.active]: isStepActive,
                   })}
                 />
-                <div className={styles.icon} />
+
+                <div className={styles.iconWrapper}>{icon}</div>
+
                 <div
                   className={classNames(styles.postIcon, {
                     [styles.active]: isNextStepActive,
@@ -51,7 +53,17 @@ export const HorizontalTimeline = ({ steps, dataHook }) => {
   );
 };
 
+HorizontalTimeline.UpcomingIcon = () => {
+  return <div className={styles.upcomingIcon} />;
+};
+
+HorizontalTimeline.ActiveIcon = () => {
+  return <div className={styles.activeIcon} />;
+};
+
 HorizontalTimeline.displayName = 'HorizontalTimeline';
+HorizontalTimeline.UpcomingIcon.displayName = 'HorizontalTimeline.UpcomingIcon';
+HorizontalTimeline.ActiveIcon.displayName = 'HorizontalTimeline.ActiveIcon';
 
 // TODO-ht review description for every field
 HorizontalTimeline.propTypes = {

@@ -2,6 +2,9 @@
 
 @import '../common.scss';
 
+$active-color: $D20;
+$inactive-color: $D40;
+
 .root {
   display: table;
   table-layout: fixed;
@@ -26,7 +29,7 @@
   padding-bottom: 6px;
 }
 
-.icon {
+.iconWrapper {
   box-sizing: border-box;
   margin: 0 6px;
   width: 18px;
@@ -38,10 +41,10 @@
 .postIcon {
   height: 1px;
   flex-grow: 1;
-  background-color: $D50;
+  background-color: $D50; // line should be different to compare with $inactive-color
 
   &.active {
-    background-color: $D20;
+    background-color: $active-color;
   }
 }
 
@@ -60,10 +63,43 @@
   text-align: center;
 }
 
+///////////////////// Icons
 
-/****** TODO-hr temp styles -- remove */
-
-.icon {
-  background-color: #fb1;
+%icon {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
+}
+
+.upcomingIcon {
+  @extend %icon;
+  border: 2px solid $inactive-color;
+}
+
+.activeIcon {
+  @extend %icon;
+  display: flex;
+  position: relative;
+  border: 2px solid $active-color;
+
+  &:before {
+    content: "";
+    margin: auto;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $active-color;
+    animation: bounce 1000ms;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes bounce {
+  to {
+    transform: scale(1.66);
+  }
 }
