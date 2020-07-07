@@ -2,18 +2,66 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './FacesRatingBar.st.css';
-import { dataHooks } from './constants';
+import { dataHooks, facesRatingBarSizesInPx, faceIndexes } from './constants';
+
+import FaceDisapointed from 'wix-ui-icons-common/dist/src/general/dist/components/FaceDisapointed';
+import FaceFrowning from 'wix-ui-icons-common/dist/src/general/dist/components/FaceFrowning';
+import FaceNeutral from 'wix-ui-icons-common/dist/src/general/dist/components/FaceNeutral';
+import FaceSmiling from 'wix-ui-icons-common/dist/src/general/dist/components/FaceSmiling';
+import FaceGrining from 'wix-ui-icons-common/dist/src/general/dist/components/FaceGrining';
+
+import Box from '../Box/Box';
+
+const faceMap = {
+  1: FaceDisapointed,
+  2: FaceFrowning,
+  3: FaceNeutral,
+  4: FaceSmiling,
+  5: FaceGrining,
+};
 
 /** A rating component that will enable the user to rate on a 1-5 scale. */
 class FacesRatingBar extends React.PureComponent {
   state = {};
 
   render() {
-    const { dataHook } = this.props;
+    const { dataHook, size } = this.props;
 
-    return <div {...styles('root', {}, this.props)} data-hook={dataHook}></div>;
+    return (
+      <Box {...styles('root', {}, this.props)} data-hook={dataHook}>
+        <Faces size={size} />
+      </Box>
+    );
   }
 }
+
+const Faces = props => {
+  // console.log('Faces');
+  // console.log('props = ', props);
+  // console.log(
+  //   'facesRatingBarSizesInPx[props.size] = ',
+  //   facesRatingBarSizesInPx[props.size],
+  // );
+  return Object.values(faceIndexes).map(faceIndex => {
+    // console.log('faceIndex = ', faceIndex);
+
+    return (
+      <Box
+        key={faceIndex}
+        width={facesRatingBarSizesInPx[props.size]}
+        height={facesRatingBarSizesInPx[props.size]}
+        borderRadius={facesRatingBarSizesInPx[props.size]}
+        backgroundColor="G40"
+      >
+        <FaceDisapointed
+          color="G05"
+          width={facesRatingBarSizesInPx[props.size]}
+          height={facesRatingBarSizesInPx[props.size]}
+        />
+      </Box>
+    );
+  });
+};
 
 FacesRatingBar.displayName = 'FacesRatingBar';
 
@@ -30,8 +78,8 @@ FacesRatingBar.propTypes = {
   /** In read only mode rating cannot be changed. */
   readOnly: PropTypes.bool,
 
-  /** Represent the rate value tooltips’ texts. Only when the array contains 5 strings, this faces rating bar will display the tooltips labels. */
-  tooltips: PropTypes.arrayOf(PropTypes.string),
+  /** Represent the rate value descriptions’ texts. Only when the array contains 5 strings, this faces rating bar will display the descriptions labels. */
+  descriptionValues: PropTypes.arrayOf(PropTypes.string),
 
   /** The faces rating bar’s selected rate. In the readOnly mode the value couldn’t be 0. */
   value: PropTypes.oneOf([0, 1, 2, 3, 4, 5]).isRequired,
@@ -45,6 +93,7 @@ FacesRatingBar.propTypes = {
 };
 
 FacesRatingBar.defaultProps = {
+  size: 'medium',
   readOnly: false,
   onChange: () => {},
 };

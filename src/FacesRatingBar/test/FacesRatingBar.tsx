@@ -17,7 +17,7 @@ function facesRatingBarWithAllProps() {
       className="className"
       size="medium"
       readOnly={false}
-      tooltips={['Strong Negative', 'Negative', 'Neutral', 'Positive', 'Strong Positive']}
+      descriptionValues={['Strong Negative', 'Negative', 'Neutral', 'Positive', 'Strong Positive']}
       value={2}
       onChange={() => {}}
     />

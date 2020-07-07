@@ -5,7 +5,7 @@ export interface FacesRatingBarProps {
   className?: string;
   size?: facesRatingBarSizes;
   readOnly?: boolean;
-  tooltips?: [string, string, string, string, string];
+  descriptionValues?: [string, string, string, string, string];
   value: facesRatingBarValues;
   onChange?: (rating: number) => void;
 }
