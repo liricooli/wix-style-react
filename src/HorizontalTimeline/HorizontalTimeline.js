@@ -8,51 +8,56 @@ import StatusCompleteFilledSmall from 'wix-ui-icons-common/StatusCompleteFilledS
 import { dataHooks } from './constants';
 
 /** TODO-hr provide description */
-export const HorizontalTimeline = ({ steps, dataHook }) => {
-  return (
-    <div className={styles.root} data-hook={dataHook}>
-      {steps.map(({ label, width, type, icon }, i) => {
-        width = width || 'auto';
-        type = type || 'inactive';
-        icon = icon || <HorizontalTimeline.UpcomingIcon />;
+class HorizontalTimeline extends React.PureComponent {
+  render() {
+    const { steps, dataHook } = this.props;
 
-        const isStepActive = type === 'active';
-        const isNextStepActive = steps[i + 1] && steps[i + 1].type === 'active';
+    return (
+      <div className={styles.root} data-hook={dataHook}>
+        {steps.map(({ label, width, type, icon }, i) => {
+          width = width || 'auto';
+          type = type || 'inactive';
+          icon = icon || <HorizontalTimeline.UpcomingIcon />;
 
-        return (
-          <div className={styles.step} key={i} style={{ width }}>
-            <div className={styles.stepInner}>
-              <div className={styles.topRow}>
-                <div
-                  className={classNames(styles.preIcon, {
-                    [styles.active]: isStepActive,
-                  })}
-                />
+          const isStepActive = type === 'active';
+          const isNextStepActive =
+            steps[i + 1] && steps[i + 1].type === 'active';
 
-                <div className={styles.iconWrapper}>{icon}</div>
+          return (
+            <div className={styles.step} key={i} style={{ width }}>
+              <div className={styles.stepInner}>
+                <div className={styles.topRow}>
+                  <div
+                    className={classNames(styles.preIcon, {
+                      [styles.active]: isStepActive,
+                    })}
+                  />
 
-                <div
-                  className={classNames(styles.postIcon, {
-                    [styles.active]: isNextStepActive,
-                  })}
-                />
+                  <div className={styles.iconWrapper}>{icon}</div>
+
+                  <div
+                    className={classNames(styles.postIcon, {
+                      [styles.active]: isNextStepActive,
+                    })}
+                  />
+                </div>
+
+                {/* TODO-hr Fix ellipsis behaviour */}
+                <Text
+                  className={styles.label}
+                  size="tiny"
+                  secondary={!isStepActive}
+                >
+                  {label}
+                </Text>
               </div>
-
-              {/* TODO-hr Fix ellipsis behaviour */}
-              <Text
-                className={styles.label}
-                size="tiny"
-                secondary={!isStepActive}
-              >
-                {label}
-              </Text>
             </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+          );
+        })}
+      </div>
+    );
+  }
+}
 
 HorizontalTimeline.UpcomingIcon = () => {
   return <div className={styles.upcomingIcon} />;
@@ -73,10 +78,15 @@ HorizontalTimeline.CompletedIcon = () => {
 };
 
 HorizontalTimeline.displayName = 'HorizontalTimeline';
+
 HorizontalTimeline.UpcomingIcon.displayName = 'HorizontalTimeline.UpcomingIcon';
 HorizontalTimeline.ActiveIcon.displayName = 'HorizontalTimeline.ActiveIcon';
+HorizontalTimeline.ErrorIcon.displayName = 'HorizontalTimeline.ErrorIcon';
+HorizontalTimeline.CompletedIcon.displayName =
+  'HorizontalTimeline.CompletedIcon';
 
 // TODO-ht review description for every field
+
 HorizontalTimeline.propTypes = {
   /** Applied as data-hook HTML attribute that can be used in the tests */
   dataHook: PropTypes.string,
@@ -100,6 +110,7 @@ HorizontalTimeline.propTypes = {
   }).isRequired,
 };
 
+// TODO-hr find a way describe default values for steps
 HorizontalTimeline.defaultProps = {};
 
 export default HorizontalTimeline;

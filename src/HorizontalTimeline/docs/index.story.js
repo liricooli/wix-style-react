@@ -61,9 +61,8 @@ export default {
   component: HorizontalTimeline,
   componentPath: '..',
 
-  componentProps: {
-    buttonText: 'Hello World!',
-  },
+  // TODO-hr provide props
+  componentProps: {},
 
   exampleProps: {
     // Put here presets of props, for more info:
