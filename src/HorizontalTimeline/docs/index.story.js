@@ -26,7 +26,11 @@ const ComponentExample = () => {
   return (
     <HorizontalTimeline
       steps={[
-        { label: 'Instructions completed', type: 'active' },
+        {
+          label: 'Instructions completed',
+          type: 'active',
+          icon: <HorizontalTimeline.CompletedIcon />,
+        },
         {
           label: 'Domain check',
           type: 'active',

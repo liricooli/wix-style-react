@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Text from '../Text';
 import styles from './HorizontalTimeline.scss';
 import classNames from 'classnames';
+import StatusCompleteFilledSmall from 'wix-ui-icons-common/StatusCompleteFilledSmall';
 import { dataHooks } from './constants';
 
 /** TODO-hr provide description */
@@ -59,6 +60,16 @@ HorizontalTimeline.UpcomingIcon = () => {
 
 HorizontalTimeline.ActiveIcon = () => {
   return <div className={styles.activeIcon} />;
+};
+
+HorizontalTimeline.ErrorIcon = () => {
+  return <div className={styles.activeIcon} />;
+};
+
+HorizontalTimeline.CompletedIcon = () => {
+  return (
+    <StatusCompleteFilledSmall size={23} className={styles.completedIcon} />
+  );
 };
 
 HorizontalTimeline.displayName = 'HorizontalTimeline';

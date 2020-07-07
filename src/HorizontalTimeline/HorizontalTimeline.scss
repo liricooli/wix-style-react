@@ -9,7 +9,6 @@ $inactive-color: $D40;
   display: table;
   table-layout: fixed;
   width: 100%;
-  padding: 6px 0;
 }
 
 .step {
@@ -31,9 +30,11 @@ $inactive-color: $D40;
 
 .iconWrapper {
   box-sizing: border-box;
-  margin: 0 6px;
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -67,8 +68,8 @@ $inactive-color: $D40;
 
 %icon {
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
 }
 
@@ -96,6 +97,10 @@ $inactive-color: $D40;
     animation-direction: alternate;
     animation-timing-function: ease-in-out;
   }
+}
+
+.completedIcon {
+  fill: $active-color;
 }
 
 @keyframes bounce {
