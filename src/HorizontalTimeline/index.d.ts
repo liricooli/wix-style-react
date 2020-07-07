@@ -1,9 +1,18 @@
 import * as React from 'react';
 
+interface HorizontalTimelineStep {
+  type?: 'active' | 'inactive';
+  label: string;
+  icon?: React.ReactNode;
+  width?: string;
+}
+
 export interface HorizontalTimelineProps {
   dataHook?: string;
   className?: string;
-  buttonText?: string;
+  steps: HorizontalTimelineStep[];
 }
 
-export default class HorizontalTimeline extends React.PureComponent<HorizontalTimelineProps>{}
+type HorizontalTimeline = React.FC<HorizontalTimelineProps>;
+
+export default HorizontalTimeline;

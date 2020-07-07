@@ -22,6 +22,30 @@ import HorizontalTimeline from '..';
 const example = config => baseExample({ components: allComponents, ...config });
 const code = config => baseCode({ components: allComponents, ...config });
 
+const ComponentExample = () => {
+  return (
+    <HorizontalTimeline
+      steps={[
+        { label: 'Instructions completed', type: 'active' },
+        { label: 'Domain check', type: 'active' },
+        { label: 'Domain connecting' },
+        { label: 'Site is live worldwide' },
+      ]}
+    />
+  );
+};
+
+const componentExampleSource = `
+  <HorizontalTimeline
+      steps={[
+        { label: 'Instructions completed' },
+        { label: 'Domain check' },
+        { label: 'Domain connecting' },
+        { label: 'Site is live worldwide' },
+      ]}
+    />
+`;
+
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
@@ -41,17 +65,18 @@ export default {
   sections: [
     header({
       sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${HorizontalTimeline.displayName}/`,
-      component: <HorizontalTimeline buttonText="Click me!" />,
+      component: <ComponentExample />,
     }),
 
     tabs([
       tab({
-        title: 'Description',
+        title: 'TODO-hr',
         sections: [
           description({
-            title: 'Description',
+            title: 'TODO-hr',
             text:
-              'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+              'TODO-hr This line here should briefly describe component in just a sentence or two. It should be short' +
+              ' and easy to read.',
           }),
 
           importExample(),
@@ -63,13 +88,13 @@ export default {
           example({
             title: 'Simple Usage',
             text: 'A simple example with compact preview',
-            source: '<HorizontalTimeline buttonText="Hello World!"/>',
+            source: componentExampleSource,
           }),
 
           code({
             title: 'Full Interactive Preview',
             description: 'A non compact version of same code example as above',
-            source: '<HorizontalTimeline buttonText="Hello World!"/>',
+            source: componentExampleSource,
           }),
         ],
       }),

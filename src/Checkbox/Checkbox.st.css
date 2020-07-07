@@ -62,7 +62,7 @@
   box-shadow: 0 0 0 3px value(F00);
 }
 
-.inner {
+.stepInner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,7 +75,7 @@
   opacity: 0;
 }
 
-.inner > svg {
+.stepInner > svg {
   width: 8px;
   height: 8px;
 }
@@ -150,8 +150,8 @@
   background-color: value(B10);
 }
 
-.root:selection(checked) .checkbox .inner,
-.root:selection(indeterminate) .checkbox .inner {
+.root:selection(checked) .checkbox .stepInner,
+.root:selection(indeterminate) .checkbox .stepInner {
   opacity: 1;
 }
 
@@ -166,7 +166,7 @@
   background-color: value(D10-05);
 }
 
-.root:disabled .checkbox .inner {
+.root:disabled .checkbox .stepInner {
   color: value(D10-30);
 }
 
