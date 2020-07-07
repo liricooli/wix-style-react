@@ -78,7 +78,7 @@ export default {
 
     tabs([
       tab({
-        title: 'TODO-hr',
+        title: 'Description',
         sections: [
           description({
             title: 'TODO-hr',

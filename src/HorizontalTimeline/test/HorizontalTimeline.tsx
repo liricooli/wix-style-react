@@ -2,14 +2,26 @@
 
 import * as React from 'react';
 import HorizontalTimeline from '..';
-import { horizontalTimelineTestkitFactory } from '../../../testkit';
-import { horizontalTimelineTestkitFactory as horizontalTimelineEnzymeTestkitFactory } from '../../../testkit/enzyme';
-import { horizontalTimelineTestkitFactory as horizontalTimelinePuppeteerTestkitFactory } from '../../../testkit/puppeteer';
+import {horizontalTimelineTestkitFactory} from '../../../testkit';
+import {horizontalTimelineTestkitFactory as horizontalTimelineEnzymeTestkitFactory} from '../../../testkit/enzyme';
+import {horizontalTimelineTestkitFactory as horizontalTimelinePuppeteerTestkitFactory} from '../../../testkit/puppeteer';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
 function horizontalTimelineWithMandatoryProps() {
-  return <HorizontalTimeline />;
+  return <HorizontalTimeline steps={[
+    {
+      label: 'Step 1',
+      icon: <div />, // TODO-hr
+    },
+    {
+      label: 'Step 2',
+      icon: <div />, // TODO-hr
+    },
+    {
+      label: 'Step 3',
+    }
+  ]}/>;
 }
 
 function horizontalTimelineWithAllProps() {
@@ -17,8 +29,19 @@ function horizontalTimelineWithAllProps() {
     <HorizontalTimeline
       dataHook="dataHook"
       className="className"
-      buttonText="buttonText"
-    />
+      steps={[
+        {
+          label: 'Step 1',
+          icon: <div />, // TODO-hr
+        },
+        {
+          label: 'Step 2',
+          icon: <div />, // TODO-hr
+        },
+        {
+          label: 'Step 3',
+        }
+      ]}/>
   );
 }
 

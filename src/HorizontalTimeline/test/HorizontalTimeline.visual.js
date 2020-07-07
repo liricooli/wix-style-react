@@ -15,7 +15,19 @@ const tests = [
       {
         it: 'default', // prop variation (e.g. small)
         props: {
-          // the simulation (e.g. {size: "small"})
+          steps: [
+            {
+              label: 'Step 1',
+              icon: <HorizontalTimeline.CompletedIcon />,
+            },
+            {
+              label: 'Step 2',
+              icon: <HorizontalTimeline.ActiveIcon />,
+            },
+            {
+              label: 'Step 3',
+            },
+          ],
         },
       },
     ],

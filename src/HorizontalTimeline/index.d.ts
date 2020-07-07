@@ -13,6 +13,6 @@ export interface HorizontalTimelineProps {
   steps: HorizontalTimelineStep[];
 }
 
-type HorizontalTimeline = React.FC<HorizontalTimelineProps>;
+declare const HorizontalTimeline: React.FC<HorizontalTimelineProps>
 
 export default HorizontalTimeline;
