@@ -132,9 +132,13 @@ class StarsRatingBar extends React.PureComponent {
         Array.isArray(descriptionValues) && descriptionValues.length === 5;
 
       if (readOnly) {
-        throw new Error('Rate caption is not available in read only mode.');
+        throw new Error(
+          'Adding description values is not available in read only mode.',
+        );
       } else if (!isValidRateCaption) {
-        throw new Error('Rate caption must be an array of strings at size 5.');
+        throw new Error(
+          'Description values must be an array of strings at size 5.',
+        );
       }
       shouldShowRateCaption = true;
     }
