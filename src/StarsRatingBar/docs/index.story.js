@@ -37,10 +37,10 @@ export default {
   },
 
   exampleProps: {
-    rateCaptions: [
+    descriptionValues: [
       {
         label: 'With rate captions',
-        value: ['bad', 'not good', 'ok', 'good', 'excellent'],
+        value: ['Very bad', 'Bad', 'Ok', 'Good', 'Very good'],
       },
     ],
   },
@@ -96,7 +96,7 @@ export default {
           example({
             title: 'With rate captions',
             text:
-              'Stars rating bar can show a rating caption which represent the rate value label. Supported only in the interactive mode.',
+              "Stars rating bar can show a rating caption which represent the rate's value label. Supported only in the interactive mode.",
             source: examples.rateCaptionsExample,
           }),
         ],

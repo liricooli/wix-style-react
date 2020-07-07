@@ -15,6 +15,7 @@
   border: none;
   padding: 0;
   background: none;
+  font-size: 0;
 }
 
 .root:focus-visible .star {

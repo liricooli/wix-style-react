@@ -67,7 +67,7 @@ const tests = [
       {
         it: 'example',
         props: {
-          rateCaptions: ['bad', 'not good', 'ok', 'good', 'excellent'],
+          descriptionValues: ['Bad', 'Not good', 'Ok', 'Good', 'Excellent'],
         },
       },
     ],

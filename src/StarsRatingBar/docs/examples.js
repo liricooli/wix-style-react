@@ -49,12 +49,12 @@ export const rateCaptionsExample = `
     state= { value: 4 };
 
     render() {
-      const rateCaptions = ['bad', 'not good', "ok", "good", "excellent" ];
+      const descriptionValues = ['Very bad', 'Bad', 'Ok', 'Good', 'Very good'];
       const { value } = this.state;
 
       return (
         <StarsRatingBar
-          rateCaptions={rateCaptions}
+          descriptionValues={descriptionValues}
           value={value}
           onChange={ (rating) => this.setState({ value: rating })}
         />

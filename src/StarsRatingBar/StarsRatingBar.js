@@ -124,12 +124,12 @@ class StarsRatingBar extends React.PureComponent {
   };
 
   _shouldShowRateCaption = () => {
-    const { readOnly, rateCaptions } = this.props;
+    const { readOnly, descriptionValues } = this.props;
     let shouldShowRateCaption = false;
 
-    if (rateCaptions) {
+    if (descriptionValues) {
       const isValidRateCaption =
-        Array.isArray(rateCaptions) && rateCaptions.length === 5;
+        Array.isArray(descriptionValues) && descriptionValues.length === 5;
 
       if (readOnly) {
         throw new Error('Rate caption is not available in read only mode.');
@@ -143,7 +143,7 @@ class StarsRatingBar extends React.PureComponent {
   };
 
   _renderRateCaption = () => {
-    const { rateCaptions, value } = this.props;
+    const { descriptionValues, value } = this.props;
     const { hoveredStarIndex } = this.state;
     const isStarsHovered = hoveredStarIndex !== 0;
 
@@ -152,9 +152,9 @@ class StarsRatingBar extends React.PureComponent {
     // If the user hovers on a star the label should be compatible to the value of the hovered star
     // otherwise the label should be compatible to the selected value.
     if (isStarsHovered) {
-      rateCaptionCurrentLabel = rateCaptions[hoveredStarIndex - 1];
+      rateCaptionCurrentLabel = descriptionValues[hoveredStarIndex - 1];
     } else {
-      rateCaptionCurrentLabel = value === 0 ? '' : rateCaptions[value - 1];
+      rateCaptionCurrentLabel = value === 0 ? '' : descriptionValues[value - 1];
     }
 
     return (
@@ -200,7 +200,7 @@ StarsRatingBar.propTypes = {
   readOnly: PropTypes.bool,
 
   /** Represent the rate value labels. Only when the array contains 5 strings, this star rating bar will display the rate caption labels. */
-  rateCaptions: PropTypes.arrayOf(PropTypes.string),
+  descriptionValues: PropTypes.arrayOf(PropTypes.string),
 
   /** The star rating bar’s selected rate. */
   value: PropTypes.oneOf([0, 1, 2, 3, 4, 5]).isRequired,

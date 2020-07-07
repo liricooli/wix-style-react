@@ -21,7 +21,7 @@ function starsRatingBarWithAllProps() {
       className="star-rating-bar"
       size="large"
       readOnly={false}
-      rateCaptions={['very bad', 'bad', 'ok', 'good', 'very good']}
+      descriptionValues={['Very bad', 'Bad', 'Ok', 'Good', 'Very good']}
       value={2}
       onChange={() => {}}
     />

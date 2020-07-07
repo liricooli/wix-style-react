@@ -101,7 +101,7 @@ InteractiveModeStar.propTypes = {
   className: PropTypes.string,
 
   /** Specifies the size of the star rating bar. Interactive mode must be 'large'. The default value for the read only mode is 'medium'. */
-  starsRatingBarSize: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
+  starsRatingBarSize: PropTypes.oneOf(['large']),
 
   /** The star index. */
   index: PropTypes.oneOf([0, 1, 2, 3, 4, 5]).isRequired,

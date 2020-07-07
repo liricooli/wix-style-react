@@ -25,11 +25,11 @@ describe(StarsRatingBar.displayName, () => {
       { index: 4, text: 'good' },
       { index: 5, text: 'excellent' },
     ])('should display the correct rate caption', async rateCaption => {
-      const rateCaptions = ['bad', 'not good', 'ok', 'good', 'excellent'];
+      const descriptionValues = ['bad', 'not good', 'ok', 'good', 'excellent'];
       const { driver } = render(
         <StarsRatingBar
           value={rateCaption.index}
-          rateCaptions={rateCaptions}
+          descriptionValues={descriptionValues}
         />,
       );
 
@@ -75,9 +75,15 @@ describe(StarsRatingBar.displayName, () => {
     ])(
       'should display the rate caption of the hovered star',
       async rateCaption => {
-        const rateCaptions = ['bad', 'not good', 'ok', 'good', 'excellent'];
+        const descriptionValues = [
+          'bad',
+          'not good',
+          'ok',
+          'good',
+          'excellent',
+        ];
         const { driver } = render(
-          <StarsRatingBar value={3} rateCaptions={rateCaptions} />,
+          <StarsRatingBar value={3} descriptionValues={descriptionValues} />,
         );
 
         expect(await driver.getSelectedRating()).toEqual(3);
