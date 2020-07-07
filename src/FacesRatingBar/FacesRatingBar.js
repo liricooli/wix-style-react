@@ -12,7 +12,7 @@ import FaceGrining from 'wix-ui-icons-common/dist/src/general/dist/components/Fa
 
 import Box from '../Box/Box';
 
-const faceMap = {
+const faceIconsMap = {
   1: FaceDisapointed,
   2: FaceFrowning,
   3: FaceNeutral,
@@ -36,24 +36,20 @@ class FacesRatingBar extends React.PureComponent {
 }
 
 const Faces = props => {
-  // console.log('Faces');
-  // console.log('props = ', props);
-  // console.log(
-  //   'facesRatingBarSizesInPx[props.size] = ',
-  //   facesRatingBarSizesInPx[props.size],
-  // );
   return Object.values(faceIndexes).map(faceIndex => {
-    // console.log('faceIndex = ', faceIndex);
+    const IconTagName = faceIconsMap[faceIndex];
 
     return (
       <Box
+        {...styles('root', {}, this.props)}
         key={faceIndex}
         width={facesRatingBarSizesInPx[props.size]}
         height={facesRatingBarSizesInPx[props.size]}
         borderRadius={facesRatingBarSizesInPx[props.size]}
         backgroundColor="G40"
       >
-        <FaceDisapointed
+        <IconTagName
+          className={styles.faceIcon}
           color="G05"
           width={facesRatingBarSizesInPx[props.size]}
           height={facesRatingBarSizesInPx[props.size]}
