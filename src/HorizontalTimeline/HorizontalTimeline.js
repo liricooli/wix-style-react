@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 
 import Text from '../Text';
 import styles from './HorizontalTimeline.st.css';
+import iconsStyles from './HorizontalTimelineIcons.st.css';
 import StatusCompleteFilledSmall from 'wix-ui-icons-common/StatusCompleteFilledSmall';
 import StatusAlertFilled from 'wix-ui-icons-common/StatusAlertFilled';
-import { dataHooks } from './constants';
 
-/** TODO-hr provide description */
 class HorizontalTimeline extends React.PureComponent {
   render() {
     const { steps, dataHook, className } = this.props;
@@ -65,20 +64,23 @@ class HorizontalTimeline extends React.PureComponent {
 }
 
 HorizontalTimeline.UpcomingIcon = () => {
-  return <div className={styles.upcomingIcon} />;
+  return <div className={iconsStyles.upcomingIcon} />;
 };
 
 HorizontalTimeline.ActiveIcon = () => {
-  return <div className={styles.activeIcon} />;
+  return <div className={iconsStyles.activeIcon} />;
 };
 
 HorizontalTimeline.ErrorIcon = () => {
-  return <StatusAlertFilled className={styles.errorIcon} />;
+  return <StatusAlertFilled className={iconsStyles.errorIcon} />;
 };
 
 HorizontalTimeline.CompletedIcon = () => {
   return (
-    <StatusCompleteFilledSmall size={23} className={styles.completedIcon} />
+    <StatusCompleteFilledSmall
+      size={23}
+      className={iconsStyles.completedIcon}
+    />
   );
 };
 
@@ -90,17 +92,13 @@ HorizontalTimeline.ErrorIcon.displayName = 'HorizontalTimeline.ErrorIcon';
 HorizontalTimeline.CompletedIcon.displayName =
   'HorizontalTimeline.CompletedIcon';
 
-// TODO-ht review description for every field
-
 HorizontalTimeline.propTypes = {
   /** Applied as data-hook HTML attribute that can be used in the tests */
   dataHook: PropTypes.string,
-
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
-
   /** Timeline steps */
-  steps: PropTypes.exact({
+  steps: PropTypes.shape({
     /** step's type */
     type: PropTypes.oneOf(['active', 'inactive']),
     /** step's text */
@@ -112,7 +110,7 @@ HorizontalTimeline.propTypes = {
   }).isRequired,
 };
 
-// TODO-hr find a way describe default values for steps
+// TODO find a way describe default values for steps config
 HorizontalTimeline.defaultProps = {};
 
 export default HorizontalTimeline;
