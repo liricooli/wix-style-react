@@ -656,6 +656,16 @@ export default {
     },
   },
 
+  HorizontalTimeline: {
+    props: {
+      steps: [
+        { label: 'Instructions completed' },
+        { label: 'Domain check' },
+        { label: 'Site is live worldwide' },
+      ],
+    },
+  },
+
   TableActionCell: {
     props: {
       primaryAction: {
