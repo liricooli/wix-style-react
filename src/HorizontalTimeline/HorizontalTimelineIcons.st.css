@@ -30,7 +30,7 @@
   border: 2px solid value(D20);
 }
 
-.activeIcon:before {
+.activeIcon::before {
   content: "";
   margin: auto;
   width: 6px;
