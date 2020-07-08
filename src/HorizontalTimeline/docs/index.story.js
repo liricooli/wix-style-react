@@ -17,8 +17,14 @@ import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
 import HorizontalTimeline from '..';
+import { code as baseCode } from 'wix-storybook-utils/dist/src/Sections';
 
-const example = config => baseExample({ components: allComponents, ...config });
+const code = config =>
+  baseCode({
+    components: allComponents,
+    compact: false,
+    ...config,
+  });
 
 export default {
   category: storySettings.category,
@@ -79,9 +85,10 @@ export default {
 
           title('Examples'),
 
-          example({
-            title: 'Default view',
-            source: `
+          ...[
+            {
+              title: 'Default view',
+              source: `
               <HorizontalTimeline
                 steps={[
                   {label: 'Instructions completed'},
@@ -90,11 +97,10 @@ export default {
                 ]}
               />
           `,
-          }),
-
-          example({
-            title: 'Custom steps width',
-            source: `
+            },
+            {
+              title: 'Custom steps width',
+              source: `
               <HorizontalTimeline
                 steps={[
                   {label: 'Instructions completed', width: '25%'},
@@ -103,11 +109,10 @@ export default {
                 ]}
               />
           `,
-          }),
-
-          example({
-            title: 'Possible steps combinations',
-            source: `
+            },
+            {
+              title: 'Possible steps combinations',
+              source: `
               <HorizontalTimeline
                 steps={[
                   {
@@ -128,7 +133,8 @@ export default {
                 ]}
               />
           `,
-          }),
+            },
+          ].map(code),
         ],
       }),
 

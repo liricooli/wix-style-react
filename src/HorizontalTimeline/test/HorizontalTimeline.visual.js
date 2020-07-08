@@ -53,6 +53,7 @@ const tests = [
           ],
         },
       },
+      // TODO add tests with narrow container and test ellipsis
     ],
   },
 ];
