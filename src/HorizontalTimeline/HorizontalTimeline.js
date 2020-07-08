@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Text from '../Text';
-import styles from './HorizontalTimeline.scss';
-import classNames from 'classnames';
+import styles from './HorizontalTimeline.st.css';
 import StatusCompleteFilledSmall from 'wix-ui-icons-common/StatusCompleteFilledSmall';
 import StatusAlertFilled from 'wix-ui-icons-common/StatusAlertFilled';
 import { dataHooks } from './constants';
@@ -14,13 +13,15 @@ class HorizontalTimeline extends React.PureComponent {
     const { steps, dataHook, className } = this.props;
 
     return (
-      <div className={classNames(styles.root, className)} data-hook={dataHook}>
+      <div {...styles('root', {}, { className })} data-hook={dataHook}>
         {steps.map(({ label, width, type, icon }, i) => {
           width = width || 'auto';
           type = type || 'inactive';
           icon = icon || <HorizontalTimeline.UpcomingIcon />;
 
           const isStepActive = type === 'active';
+          const isFirstStep = i === 0;
+          const isLastStep = steps.length - 1 === i;
           const isNextStepActive =
             steps[i + 1] && steps[i + 1].type === 'active';
 
@@ -29,16 +30,18 @@ class HorizontalTimeline extends React.PureComponent {
               <div className={styles.step}>
                 <div className={styles.topRow}>
                   <div
-                    className={classNames(styles.preIcon, {
-                      [styles.active]: isStepActive,
+                    {...styles('line', {
+                      active: isStepActive,
+                      hidden: isFirstStep,
                     })}
                   />
 
                   <div className={styles.iconWrapper}>{icon}</div>
 
                   <div
-                    className={classNames(styles.postIcon, {
-                      [styles.active]: isNextStepActive,
+                    {...styles('line', {
+                      active: isNextStepActive,
+                      hidden: isLastStep,
                     })}
                   />
                 </div>

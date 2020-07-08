@@ -35,10 +35,10 @@ const ComponentExample = () => {
           icon: <HorizontalTimeline.ActiveIcon />,
         },
         { label: 'Domain connecting' },
-        // {
-        //   label: 'Site is live worldwide',
-        //   icon: <HorizontalTimeline.ErrorIcon />,
-        // },
+        {
+          label: 'Site is live worldwide',
+          icon: <HorizontalTimeline.ErrorIcon />,
+        },
       ]}
     />
   );
