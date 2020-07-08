@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TextButton from '..';
-import Checkbox from '..';
+import Checkbox from '../../Checkbox';
 import { textButtonTestkitFactory } from '../../../testkit';
 import { textButtonTestkitFactory as textButtonEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import { textButtonTestkitFactory as textButtonPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
@@ -54,18 +54,18 @@ function ShouldHaveComponentProps() {
 async function testkits() {
   const testkit = textButtonTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = textButtonEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await textButtonPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }
