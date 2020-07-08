@@ -34,7 +34,9 @@ export default {
   componentPath: '..',
 
   // TODO provide props
-  componentProps: {},
+  componentProps: {
+    steps: [],
+  },
 
   // TODO provide props
   exampleProps: {
