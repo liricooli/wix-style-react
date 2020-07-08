@@ -16,6 +16,7 @@ import FaceSmiling from 'wix-ui-icons-common/dist/src/general/dist/components/Fa
 import FaceGrining from 'wix-ui-icons-common/dist/src/general/dist/components/FaceGrining';
 
 import Box from '../Box/Box';
+import Tooltip from '../Tooltip';
 
 const faceIconsMap = {
   1: FaceDisapointed,
@@ -30,6 +31,16 @@ class FacesRatingBar extends React.PureComponent {
   state = {
     faceHoveredIndex: 0,
   };
+
+  componentDidMount() {
+    const { readOnly, value } = this.props;
+
+    if (readOnly && value === 0) {
+      throw new Error(
+        'In readOnly mode the value couldn’t be 0. Please enter a value between 1 to 5.',
+      );
+    }
+  }
 
   _onFaceClick = index => {
     const { readOnly, onChange } = this.props;
@@ -55,9 +66,31 @@ class FacesRatingBar extends React.PureComponent {
     }
   };
 
+  _shouldShowDescriptionValues = () => {
+    const { readOnly, descriptionValues } = this.props;
+    let shouldShowDescriptionValues = false;
+
+    if (descriptionValues) {
+      const isValidDescriptionValues =
+        Array.isArray(descriptionValues) && descriptionValues.length === 5;
+
+      if (readOnly) {
+        // Adding description values is not available in read only mode
+        shouldShowDescriptionValues = false;
+      } else {
+        // Description values must be an array of strings at size 5
+        shouldShowDescriptionValues = isValidDescriptionValues;
+      }
+    }
+
+    return shouldShowDescriptionValues;
+  };
+
   render() {
-    const { dataHook, readOnly, size, value } = this.props;
+    const { dataHook, readOnly, size, value, descriptionValues } = this.props;
     const { faceHoveredIndex } = this.state;
+
+    const showDescriptionValues = this._shouldShowDescriptionValues();
 
     return (
       <Box {...styles('root', {}, this.props)} data-hook={dataHook}>
@@ -66,6 +99,8 @@ class FacesRatingBar extends React.PureComponent {
           size={size}
           selectedIndex={value}
           hoveredIndex={faceHoveredIndex}
+          showDescriptionValues={showDescriptionValues}
+          descriptionValues={descriptionValues}
           onClick={this._onFaceClick}
           onMouseEnter={this._onFaceMouseEnter}
           onMouseLeave={this._onFaceMouseLeave}
@@ -82,6 +117,9 @@ const Faces = props => {
     const isHovered = props.hoveredIndex === faceIndex;
     const type = props.readOnly ? 'readOnly' : 'interactive';
     const iconType = faceIconTypeMap[faceIndex];
+    const tooltipContent = props.showDescriptionValues
+      ? props.descriptionValues[faceIndex - 1]
+      : '';
 
     return (
       <div
@@ -101,11 +139,16 @@ const Faces = props => {
         onMouseEnter={() => props.onMouseEnter(faceIndex)}
         onMouseLeave={props.onMouseLeave}
       >
-        <IconTagName
-          className={styles.faceIcon}
-          width={facesRatingBarSizesInPx[props.size]}
-          height={facesRatingBarSizesInPx[props.size]}
-        />
+        <Tooltip
+          content={tooltipContent}
+          disabled={!props.showDescriptionValues}
+        >
+          <IconTagName
+            className={styles.faceIcon}
+            width={facesRatingBarSizesInPx[props.size]}
+            height={facesRatingBarSizesInPx[props.size]}
+          />
+        </Tooltip>
       </div>
     );
   });
