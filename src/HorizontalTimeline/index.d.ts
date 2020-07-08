@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {PopoverMenuDividerProps, PopoverMenuItemProps} from '../PopoverMenu';
 
 interface HorizontalTimelineStep {
   type?: 'active' | 'inactive';
