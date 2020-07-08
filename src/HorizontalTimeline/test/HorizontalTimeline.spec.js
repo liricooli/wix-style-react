@@ -13,9 +13,28 @@ describe(HorizontalTimeline.displayName, () => {
     cleanup();
   });
 
-  // TODO-hr write test
   it('should render', async () => {
-    const { driver } = render(<HorizontalTimeline />);
+    const { driver } = render(
+      <HorizontalTimeline
+        steps={[
+          {
+            label: 'Instructions completed',
+            type: 'active',
+            icon: <HorizontalTimeline.CompletedIcon />,
+          },
+          {
+            label: 'Domain check',
+            type: 'active',
+            icon: <HorizontalTimeline.ActiveIcon />,
+          },
+          { label: 'Domain connecting' },
+          {
+            label: 'Site is live worldwide',
+            icon: <HorizontalTimeline.ErrorIcon />,
+          },
+        ]}
+      />,
+    );
 
     expect(await driver.exists()).toBe(true);
   });

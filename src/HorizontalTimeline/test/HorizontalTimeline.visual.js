@@ -4,28 +4,51 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import HorizontalTimeline from '../HorizontalTimeline';
 
-const commonProps = {
-  // use for repeated props across the tests (e.g. {buttonText: 'example'})
-};
-
 const tests = [
   {
-    describe: 'sanity', // prop name (e.g. size)
+    describe: 'steps',
     its: [
       {
-        it: 'default', // prop variation (e.g. small)
+        it: 'defaults',
+        props: {
+          steps: [
+            { label: 'Instructions completed' },
+            { label: 'Domain check' },
+            { label: 'Site is live worldwide' },
+          ],
+        },
+      },
+      {
+        it: 'should have custom width for steps',
+        props: {
+          steps: [
+            { label: 'Instructions completed', width: '25%' },
+            { label: 'Domain check' },
+            { label: 'Site is live worldwide', width: '25%' },
+          ],
+        },
+      },
+      {
+        it: 'should have different icons and types for each step',
         props: {
           steps: [
             {
-              label: 'Step 1',
+              label: 'Instructions completed',
+              type: 'active',
               icon: <HorizontalTimeline.CompletedIcon />,
             },
             {
-              label: 'Step 2',
+              label: 'Domain check',
+              type: 'active',
               icon: <HorizontalTimeline.ActiveIcon />,
             },
             {
-              label: 'Step 3',
+              label: 'Domain connecting',
+              icon: <HorizontalTimeline.UpcomingIcon />,
+            },
+            {
+              label: 'Site is live worldwide',
+              icon: <HorizontalTimeline.ErrorIcon />,
             },
           ],
         },
@@ -39,6 +62,6 @@ tests.forEach(({ describe, its }) => {
     storiesOf(
       `${HorizontalTimeline.displayName}${describe ? '/' + describe : ''}`,
       module,
-    ).add(it, () => <HorizontalTimeline {...commonProps} {...props} />);
+    ).add(it, () => <HorizontalTimeline {...props} />);
   });
 });
