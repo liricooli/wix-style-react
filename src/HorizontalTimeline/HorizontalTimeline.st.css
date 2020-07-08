@@ -55,6 +55,6 @@
 .label {
   box-sizing: border-box;
   width: 100%;
-  padding: 6px;
+  padding: 3px 6px 6px 6px;
   text-align: center;
 }
