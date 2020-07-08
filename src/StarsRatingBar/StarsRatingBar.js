@@ -48,12 +48,7 @@ class StarsRatingBar extends React.PureComponent {
   };
 
   _getInteractiveModeStarsSize = () => {
-    const { size } = this.props;
-    if (size && size !== starRatingBarSizes.large) {
-      throw new Error(
-        `The size ${size} is not valid. In interactive mode the size must be 'large'.`,
-      );
-    }
+    //  In interactive mode the size must be 'large'
     return starRatingBarSizes.large;
   };
 
@@ -132,15 +127,12 @@ class StarsRatingBar extends React.PureComponent {
         Array.isArray(descriptionValues) && descriptionValues.length === 5;
 
       if (readOnly) {
-        throw new Error(
-          'Adding description values is not available in read only mode.',
-        );
-      } else if (!isValidRateCaption) {
-        throw new Error(
-          'Description values must be an array of strings at size 5.',
-        );
+        // Adding description values is not available in read only mode
+        shouldShowRateCaption = false;
+      } else {
+        // Description values must be an array of strings at size 5
+        shouldShowRateCaption = isValidRateCaption;
       }
-      shouldShowRateCaption = true;
     }
 
     return shouldShowRateCaption;
