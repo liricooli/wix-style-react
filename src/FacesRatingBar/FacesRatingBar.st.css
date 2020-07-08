@@ -1,9 +1,45 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: G30,R30;
+  -st-named: D20, B10, B40;
 }
 
 .root {
+}
+
+.faceContainer {
+  -st-states: size(enum(small, medium)), hovered, selected, readOnly;
+}
+
+.faceContainer:size(small) {
+  width: 18px;
+  height: 18px;
+  border-radius: 18px;
+}
+
+.faceContainer:size(medium) {
+  width: 22px;
+  height: 22px;
+  border-radius: 22px;
+}
+
+.faceContainer:readOnly {
+  background-color: none;
+}
+
+.faceContainer:selected {
+  background-color: value(B40);
+}
+
+.faceContainer:selected .faceIcon {
+  color: value(B10);
+}
+
+.faceContainer:hovered {
+  cursor: pointer;
+}
+
+.faceContainer:hovered .faceIcon {
+  color: value(B10);
 }
 
 .faceIcon {

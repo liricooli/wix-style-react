@@ -22,14 +22,22 @@ const faceIconsMap = {
 
 /** A rating component that will enable the user to rate on a 1-5 scale. */
 class FacesRatingBar extends React.PureComponent {
-  state = {};
+  state = {
+    faceHoveredIndex: 0,
+  };
 
   render() {
-    const { dataHook, size } = this.props;
+    const { dataHook, readOnly, size, value } = this.props;
+    const { faceHoveredIndex } = this.state;
 
     return (
       <Box {...styles('root', {}, this.props)} data-hook={dataHook}>
-        <Faces size={size} />
+        <Faces
+          readOnly={readOnly}
+          size={size}
+          selectedIndex={value}
+          hoveredIndex={faceHoveredIndex}
+        />
       </Box>
     );
   }
@@ -38,23 +46,29 @@ class FacesRatingBar extends React.PureComponent {
 const Faces = props => {
   return Object.values(faceIndexes).map(faceIndex => {
     const IconTagName = faceIconsMap[faceIndex];
+    const isSelected = props.selectedIndex === faceIndex;
+    const isHovered = props.hoveredIndex === faceIndex;
 
     return (
-      <Box
-        {...styles('root', {}, this.props)}
+      <div
+        {...styles(
+          'faceContainer',
+          {
+            size: props.size,
+            hovered: isHovered,
+            selected: isSelected,
+            readOnly: props.readOnly,
+          },
+          props,
+        )}
         key={faceIndex}
-        width={facesRatingBarSizesInPx[props.size]}
-        height={facesRatingBarSizesInPx[props.size]}
-        borderRadius={facesRatingBarSizesInPx[props.size]}
-        backgroundColor="G40"
       >
         <IconTagName
           className={styles.faceIcon}
-          color="G05"
           width={facesRatingBarSizesInPx[props.size]}
           height={facesRatingBarSizesInPx[props.size]}
         />
-      </Box>
+      </div>
     );
   });
 };
