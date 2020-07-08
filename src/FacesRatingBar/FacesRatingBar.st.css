@@ -3,82 +3,93 @@
   -st-named: D20, D10-20, B10, B40, R05, R40, Y05, Y40, G05, G40;
 }
 
+:import {
+  -st-from: "../Foundation/stylable/spacing.st.css";
+  -st-named: spacing12;
+}
+
 .root {
 }
 
-.faceContainer {
+.faceWrapper {
   -st-states: size(enum(small, medium)), type(enum(readOnly, interactive)), hovered, selected, iconType(enum(disapointed, frowning, neutral, smiling, grining));
+  margin-right: value(spacing12);
+}
+
+.faceWrapper:last-child {
+  margin-right: 0;
 }
 
 .faceIcon {
+  color: value(D20);
 }
 
 
-.faceContainer:size(small) {
+.faceWrapper:size(small) {
   width: 18px;
   height: 18px;
   border-radius: 18px;
 }
 
-.faceContainer:size(medium) {
+.faceWrapper:size(medium) {
   width: 22px;
   height: 22px;
   border-radius: 22px;
 }
 
-.faceContainer:type(interactive):selected {
+.faceWrapper:type(interactive):selected {
   background-color: value(B40);
 }
 
-.faceContainer:type(interactive):selected .faceIcon {
+.faceWrapper:type(interactive):selected .faceIcon {
   color: value(B10);
 }
 
-.faceContainer:type(interactive):hovered {
+.faceWrapper:type(interactive):hovered {
   cursor: pointer;
 }
 
-.faceContainer:type(interactive):hovered .faceIcon {
+.faceWrapper:type(interactive):hovered .faceIcon {
   color: value(B10);
 }
 
 
 /** read only mode */
-.faceContainer:type(readOnly) .faceIcon {
+.faceWrapper:type(readOnly) .faceIcon {
   color: value(D10-20);
 }
 
-.faceContainer:type(readOnly):selected:iconType(disapointed) {
+.faceWrapper:type(readOnly):selected:iconType(disapointed) {
   background-color: value(R40);
 }
-.faceContainer:type(readOnly):selected:iconType(disapointed) .faceIcon {
+.faceWrapper:type(readOnly):selected:iconType(disapointed) .faceIcon {
   color: value(R05);
 }
 
-.faceContainer:type(readOnly):selected:iconType(frowning) {
+.faceWrapper:type(readOnly):selected:iconType(frowning) {
   background-color: value(R40);
 }
-.faceContainer:type(readOnly):selected:iconType(frowning) .faceIcon {
+.faceWrapper:type(readOnly):selected:iconType(frowning) .faceIcon {
   color: value(R05);
 }
 
-.faceContainer:type(readOnly):selected:iconType(neutral) {
+.faceWrapper:type(readOnly):selected:iconType(neutral) {
   background-color: value(Y40);
 }
-.faceContainer:type(readOnly):selected:iconType(neutral) .faceIcon {
+.faceWrapper:type(readOnly):selected:iconType(neutral) .faceIcon {
   color: value(Y05);
 }
 
-.faceContainer:type(readOnly):selected:iconType(smiling) {
+.faceWrapper:type(readOnly):selected:iconType(smiling) {
   background-color: value(G40);
 }
-.faceContainer:type(readOnly):selected:iconType(smiling) .faceIcon {
+.faceWrapper:type(readOnly):selected:iconType(smiling) .faceIcon {
   color: value(G05);
 }
 
-.faceContainer:type(readOnly):selected:iconType(grining) {
+.faceWrapper:type(readOnly):selected:iconType(grining) {
   background-color: value(G40);
 }
-.faceContainer:type(readOnly):selected:iconType(grining) .faceIcon {
+.faceWrapper:type(readOnly):selected:iconType(grining) .faceIcon {
   color: value(G05);
 }

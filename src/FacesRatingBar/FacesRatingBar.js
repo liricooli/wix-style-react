@@ -86,7 +86,7 @@ const Faces = props => {
     return (
       <div
         {...styles(
-          'faceContainer',
+          'faceWrapper',
           {
             type: type,
             size: props.size,
