@@ -13,7 +13,7 @@ describe(HorizontalTimeline.displayName, () => {
     cleanup();
   });
 
-  // TODO write test
+  // TODO-hr write test
   it('should render', async () => {
     const { driver } = render(<HorizontalTimeline />);
 

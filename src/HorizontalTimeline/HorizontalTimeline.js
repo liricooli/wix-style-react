@@ -25,31 +25,34 @@ class HorizontalTimeline extends React.PureComponent {
             steps[i + 1] && steps[i + 1].type === 'active';
 
           return (
-            <div className={styles.step} key={i} style={{ width }}>
-              <div className={styles.topRow}>
-                <div
-                  className={classNames(styles.preIcon, {
-                    [styles.active]: isStepActive,
-                  })}
-                />
+            <div className={styles.column} key={i} style={{ width: width }}>
+              <div className={styles.step}>
+                <div className={styles.topRow}>
+                  <div
+                    className={classNames(styles.preIcon, {
+                      [styles.active]: isStepActive,
+                    })}
+                  />
 
-                <div className={styles.iconWrapper}>{icon}</div>
+                  <div className={styles.iconWrapper}>{icon}</div>
 
-                <div
-                  className={classNames(styles.postIcon, {
-                    [styles.active]: isNextStepActive,
-                  })}
-                />
+                  <div
+                    className={classNames(styles.postIcon, {
+                      [styles.active]: isNextStepActive,
+                    })}
+                  />
+                </div>
+
+                {/* TODO-hr Fix ellipsis behaviour */}
+                <Text
+                  className={styles.label}
+                  size="tiny"
+                  secondary={!isStepActive}
+                  ellipsis
+                >
+                  {label}
+                </Text>
               </div>
-
-              {/* TODO-hr Fix ellipsis behaviour */}
-              <Text
-                className={styles.label}
-                size="tiny"
-                secondary={!isStepActive}
-              >
-                {label}
-              </Text>
             </div>
           );
         })}
@@ -95,13 +98,13 @@ HorizontalTimeline.propTypes = {
 
   /** Timeline steps */
   steps: PropTypes.exact({
-    /** step type */
+    /** step's type */
     type: PropTypes.oneOf(['active', 'inactive']),
 
-    /** step text */
+    /** step's text */
     label: PropTypes.string.isRequired,
 
-    /** step icon */
+    /** step's icon */
     icon: PropTypes.elementType,
 
     /** custom width for step */

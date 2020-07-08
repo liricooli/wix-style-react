@@ -8,7 +8,6 @@ import {
   title,
   divider,
   example as baseExample,
-  code as baseCode,
   playground,
   api,
   testkit,
@@ -20,7 +19,6 @@ import allComponents from '../../../stories/utils/allComponents';
 import HorizontalTimeline from '..';
 
 const example = config => baseExample({ components: allComponents, ...config });
-const code = config => baseCode({ components: allComponents, ...config });
 
 const ComponentExample = () => {
   return (
@@ -37,10 +35,10 @@ const ComponentExample = () => {
           icon: <HorizontalTimeline.ActiveIcon />,
         },
         { label: 'Domain connecting' },
-        {
-          label: 'Site is live worldwide',
-          icon: <HorizontalTimeline.ErrorIcon />,
-        },
+        // {
+        //   label: 'Site is live worldwide',
+        //   icon: <HorizontalTimeline.ErrorIcon />,
+        // },
       ]}
     />
   );
@@ -64,7 +62,7 @@ export default {
   component: HorizontalTimeline,
   componentPath: '..',
 
-  // TODO-hr provide props
+  // TODO-ht provide props
   componentProps: {},
 
   exampleProps: {
@@ -98,12 +96,6 @@ export default {
           example({
             title: 'Simple Usage',
             text: 'A simple example with compact preview',
-            source: componentExampleSource,
-          }),
-
-          code({
-            title: 'Full Interactive Preview',
-            description: 'A non compact version of same code example as above',
             source: componentExampleSource,
           }),
         ],

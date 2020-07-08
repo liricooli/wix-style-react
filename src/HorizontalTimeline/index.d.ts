@@ -5,7 +5,7 @@ interface HorizontalTimelineStep {
   type?: 'active' | 'inactive';
   label: string;
   icon?: React.ReactNode;
-  width?: string;
+  width?: React.CSSProperties['width'];
 }
 
 export interface HorizontalTimelineProps {
