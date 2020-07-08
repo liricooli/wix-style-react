@@ -39,7 +39,7 @@ export default {
   exampleProps: {
     descriptionValues: [
       {
-        label: 'With rate captions',
+        label: 'With description values',
         value: ['Very bad', 'Bad', 'Ok', 'Good', 'Very good'],
       },
     ],
