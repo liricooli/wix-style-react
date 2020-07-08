@@ -95,13 +95,15 @@
   height: 6px;
   border-radius: 50%;
   background-color: value(D20);
-  animation: bounce 1000ms;
+  animation-name: bounce;
+  animation-duration: 500ms;
+  animation-direction: alternate;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: cubic-bezier(0.81, 0, 1, 1);
 }
 
 @keyframes bounce {
-  50% {
+  100% {
     transform: scale(1.66);
   }
 }
