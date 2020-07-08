@@ -33,7 +33,7 @@ export default {
   component: HorizontalTimeline,
   componentPath: '..',
 
-  // TODO provide props
+  // TODO provide props -- maybe remove "playground" section?
   componentProps: {
     steps: [],
   },
@@ -75,13 +75,13 @@ export default {
         title: 'Description',
         sections: [
           description({
-            title: 'TODO',
             text:
-              ' TODO This line here should briefly describe component in just a sentence or two. It should be short' +
-              ' and easy to read.',
+              'HorizontalTimeline is a layout component that lists events in a horizontal line. Each event can have a specific status or icon. Use it to display domain connection status.',
           }),
 
-          importExample(),
+          importExample(
+            "import { HorizontalTimeline } from 'wix-style-react';",
+          ),
 
           divider(),
 
@@ -89,7 +89,8 @@ export default {
 
           ...[
             {
-              title: 'Default view',
+              title: 'Structure',
+              description: `Component can have any number of items. Each item’s label and line color can appear neutral or highlighted as 'active'.`,
               source: `
               <HorizontalTimeline
                 steps={[
@@ -102,18 +103,20 @@ export default {
             },
             {
               title: 'Custom steps width',
+              description:
+                'Component divides items to equal columns. If needed each column’s width can be adjusted manually.',
               source: `
               <HorizontalTimeline
                 steps={[
-                  {label: 'Instructions completed', width: '25%'},
-                  {label: 'Domain check'},
-                  {label: 'Site is live worldwide', width: '25%'},
+                  {label: 'Thirty percent width', width: '30%'},
+                  {label: 'Width is auto'},
+                  {label: 'Two hundred pixels width', width: '200px'},
                 ]}
               />
           `,
             },
             {
-              title: 'Possible steps combinations',
+              title: 'Predefined Statuses',
               source: `
               <HorizontalTimeline
                 steps={[
