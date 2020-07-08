@@ -98,16 +98,18 @@ HorizontalTimeline.propTypes = {
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
   /** Timeline steps */
-  steps: PropTypes.shape({
-    /** step's type */
-    type: PropTypes.oneOf(['active', 'inactive']),
-    /** step's text */
-    label: PropTypes.string.isRequired,
-    /** step's icon */
-    icon: PropTypes.elementType,
-    /** custom width for step */
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  }).isRequired,
+  steps: PropTypes.arrayOf(
+    PropTypes.shape({
+      /** step's type */
+      type: PropTypes.oneOf(['active', 'inactive']),
+      /** step's text */
+      label: PropTypes.string.isRequired,
+      /** step's icon */
+      icon: PropTypes.elementType,
+      /** custom width for step */
+      width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    }),
+  ).isRequired,
 };
 
 // TODO find a way describe default values for steps config
