@@ -105,7 +105,7 @@ HorizontalTimeline.propTypes = {
       /** step's text */
       label: PropTypes.string.isRequired,
       /** step's icon */
-      icon: PropTypes.elementType,
+      icon: PropTypes.node,
       /** custom width for step */
       width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }),
