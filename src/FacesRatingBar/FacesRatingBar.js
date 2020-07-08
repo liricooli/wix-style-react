@@ -26,6 +26,18 @@ class FacesRatingBar extends React.PureComponent {
     faceHoveredIndex: 0,
   };
 
+  _onFaceClick = index => {
+    this.props.onChange(index);
+  };
+
+  _onFaceMouseEnter = index => {
+    this.setState({ faceHoveredIndex: index });
+  };
+
+  _onFaceMouseLeave = () => {
+    this.setState({ faceHoveredIndex: 0 });
+  };
+
   render() {
     const { dataHook, readOnly, size, value } = this.props;
     const { faceHoveredIndex } = this.state;
@@ -37,6 +49,9 @@ class FacesRatingBar extends React.PureComponent {
           size={size}
           selectedIndex={value}
           hoveredIndex={faceHoveredIndex}
+          onClick={this._onFaceClick}
+          onMouseEnter={this._onFaceMouseEnter}
+          onMouseLeave={this._onFaceMouseLeave}
         />
       </Box>
     );
@@ -62,6 +77,9 @@ const Faces = props => {
           props,
         )}
         key={faceIndex}
+        onClick={() => props.onClick(faceIndex)}
+        onMouseEnter={() => props.onMouseEnter(faceIndex)}
+        onMouseLeave={props.onMouseLeave}
       >
         <IconTagName
           className={styles.faceIcon}

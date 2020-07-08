@@ -16,6 +16,7 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
+import * as examples from './examples';
 
 import FacesRatingBar from '..';
 
@@ -36,8 +37,6 @@ export default {
   },
 
   exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
     descriptionValues: [
       {
         label: 'With description values',
@@ -76,14 +75,28 @@ export default {
 
           example({
             title: 'Simple Usage',
-            text: 'A simple example with compact preview',
-            source: '<FacesRatingBar value={2} />',
+            text: 'A simple examples',
+            source: examples.basicExample,
           }),
 
-          code({
-            title: 'Full Interactive Preview',
-            description: 'A non compact version of same code example as above',
-            source: '<FacesRatingBar value={2} />',
+          example({
+            title: 'readOnly',
+            text:
+              'Faces rating bar has 2 modes: readOnly and interactive. This is an example for the readOnly mode.',
+            source: examples.readOnlyExample,
+          }),
+
+          example({
+            title: 'Sizes',
+            text: 'There are 2 sizes: small and medium (default)',
+            source: examples.sizesExample,
+          }),
+
+          example({
+            title: 'With description values',
+            text:
+              "Faces rating bar can show description values which are tooltips that represent the rate's values. Supported only in the interactive mode.",
+            source: examples.descriptionValuesExample,
           }),
         ],
       }),
