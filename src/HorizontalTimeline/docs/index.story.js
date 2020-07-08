@@ -20,41 +20,6 @@ import HorizontalTimeline from '..';
 
 const example = config => baseExample({ components: allComponents, ...config });
 
-const ComponentExample = () => {
-  return (
-    <HorizontalTimeline
-      steps={[
-        {
-          label: 'Instructions completed',
-          type: 'active',
-          icon: <HorizontalTimeline.CompletedIcon />,
-        },
-        {
-          label: 'Domain check',
-          type: 'active',
-          icon: <HorizontalTimeline.ActiveIcon />,
-        },
-        { label: 'Domain connecting' },
-        {
-          label: 'Site is live worldwide',
-          icon: <HorizontalTimeline.ErrorIcon />,
-        },
-      ]}
-    />
-  );
-};
-
-const componentExampleSource = `
-  <HorizontalTimeline
-      steps={[
-        { label: 'Instructions completed' },
-        { label: 'Domain check' },
-        { label: 'Domain connecting' },
-        { label: 'Site is live worldwide' },
-      ]}
-    />
-`;
-
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
@@ -73,7 +38,27 @@ export default {
   sections: [
     header({
       sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${HorizontalTimeline.displayName}/`,
-      component: <ComponentExample />,
+      component: (
+        <div style={{ width: '200px' }}>
+          <HorizontalTimeline
+            steps={[
+              {
+                label: 'Step 1',
+                type: 'active',
+                icon: <HorizontalTimeline.CompletedIcon />,
+              },
+              {
+                label: 'Step 2',
+                type: 'active',
+                icon: <HorizontalTimeline.ActiveIcon />,
+              },
+              {
+                label: 'Step 3',
+              },
+            ]}
+          />
+        </div>
+      ),
     }),
 
     tabs([
@@ -94,9 +79,54 @@ export default {
           title('Examples'),
 
           example({
-            title: 'Simple Usage',
-            text: 'A simple example with compact preview',
-            source: componentExampleSource,
+            title: 'Default view',
+            source: `
+              <HorizontalTimeline
+                steps={[
+                  {label: 'Instructions completed'},
+                  {label: 'Domain check'},
+                  {label: 'Site is live worldwide'},
+                ]}
+              />
+          `,
+          }),
+
+          example({
+            title: 'Custom steps width',
+            source: `
+              <HorizontalTimeline
+                steps={[
+                  {label: 'Instructions completed', width: '25%'},
+                  {label: 'Domain check'},
+                  {label: 'Site is live worldwide', width: '25%'},
+                ]}
+              />
+          `,
+          }),
+
+          example({
+            title: 'Possible steps combinations',
+            source: `
+              <HorizontalTimeline
+                steps={[
+                  {
+                    label: 'Instructions completed',
+                    type: 'active',
+                    icon: <HorizontalTimeline.CompletedIcon />,
+                  },
+                  {
+                    label: 'Domain check',
+                    type: 'active',
+                    icon: <HorizontalTimeline.ActiveIcon />,
+                  },
+                  { label: 'Domain connecting' },
+                  {
+                    label: 'Site is live worldwide',
+                    icon: <HorizontalTimeline.ErrorIcon />,
+                  },
+                ]}
+              />
+          `,
           }),
         ],
       }),

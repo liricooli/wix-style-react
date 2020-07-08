@@ -103,15 +103,12 @@ HorizontalTimeline.propTypes = {
   steps: PropTypes.exact({
     /** step's type */
     type: PropTypes.oneOf(['active', 'inactive']),
-
     /** step's text */
     label: PropTypes.string.isRequired,
-
     /** step's icon */
     icon: PropTypes.elementType,
-
     /** custom width for step */
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // TODO-hr define this prop-type
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }).isRequired,
 };
 
