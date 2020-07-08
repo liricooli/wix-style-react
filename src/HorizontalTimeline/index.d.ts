@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {PopoverMenuDividerProps, PopoverMenuItemProps} from '../PopoverMenu';
 
 interface HorizontalTimelineStep {
   type?: 'active' | 'inactive';
@@ -13,6 +14,9 @@ export interface HorizontalTimelineProps {
   steps: HorizontalTimelineStep[];
 }
 
-declare const HorizontalTimeline: React.FC<HorizontalTimelineProps>
-
-export default HorizontalTimeline;
+export default class HorizontalTimeline extends React.PureComponent<HorizontalTimelineProps> {
+  static UpcomingIcon: React.FC;
+  static ActiveIcon: React.FC;
+  static ErrorIcon: React.FC;
+  static CompletedIcon: React.FC;
+}

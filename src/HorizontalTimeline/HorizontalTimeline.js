@@ -5,15 +5,16 @@ import Text from '../Text';
 import styles from './HorizontalTimeline.scss';
 import classNames from 'classnames';
 import StatusCompleteFilledSmall from 'wix-ui-icons-common/StatusCompleteFilledSmall';
+import StatusAlertFilled from 'wix-ui-icons-common/StatusAlertFilled';
 import { dataHooks } from './constants';
 
 /** TODO-hr provide description */
 class HorizontalTimeline extends React.PureComponent {
   render() {
-    const { steps, dataHook } = this.props;
+    const { steps, dataHook, className } = this.props;
 
     return (
-      <div className={styles.root} data-hook={dataHook}>
+      <div className={classNames(styles.root, className)} data-hook={dataHook}>
         {steps.map(({ label, width, type, icon }, i) => {
           width = width || 'auto';
           type = type || 'inactive';
@@ -25,32 +26,30 @@ class HorizontalTimeline extends React.PureComponent {
 
           return (
             <div className={styles.step} key={i} style={{ width }}>
-              <div className={styles.stepInner}>
-                <div className={styles.topRow}>
-                  <div
-                    className={classNames(styles.preIcon, {
-                      [styles.active]: isStepActive,
-                    })}
-                  />
+              <div className={styles.topRow}>
+                <div
+                  className={classNames(styles.preIcon, {
+                    [styles.active]: isStepActive,
+                  })}
+                />
 
-                  <div className={styles.iconWrapper}>{icon}</div>
+                <div className={styles.iconWrapper}>{icon}</div>
 
-                  <div
-                    className={classNames(styles.postIcon, {
-                      [styles.active]: isNextStepActive,
-                    })}
-                  />
-                </div>
-
-                {/* TODO-hr Fix ellipsis behaviour */}
-                <Text
-                  className={styles.label}
-                  size="tiny"
-                  secondary={!isStepActive}
-                >
-                  {label}
-                </Text>
+                <div
+                  className={classNames(styles.postIcon, {
+                    [styles.active]: isNextStepActive,
+                  })}
+                />
               </div>
+
+              {/* TODO-hr Fix ellipsis behaviour */}
+              <Text
+                className={styles.label}
+                size="tiny"
+                secondary={!isStepActive}
+              >
+                {label}
+              </Text>
             </div>
           );
         })}
@@ -68,7 +67,7 @@ HorizontalTimeline.ActiveIcon = () => {
 };
 
 HorizontalTimeline.ErrorIcon = () => {
-  return <div className={styles.activeIcon} />;
+  return <StatusAlertFilled className={styles.errorIcon} />;
 };
 
 HorizontalTimeline.CompletedIcon = () => {

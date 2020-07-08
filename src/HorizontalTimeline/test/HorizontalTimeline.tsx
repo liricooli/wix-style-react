@@ -12,11 +12,11 @@ function horizontalTimelineWithMandatoryProps() {
   return <HorizontalTimeline steps={[
     {
       label: 'Step 1',
-      icon: <div />, // TODO-hr
+      icon: <HorizontalTimeline.CompletedIcon />,
     },
     {
       label: 'Step 2',
-      icon: <div />, // TODO-hr
+      icon: <HorizontalTimeline.ActiveIcon />,
     },
     {
       label: 'Step 3',
@@ -32,11 +32,11 @@ function horizontalTimelineWithAllProps() {
       steps={[
         {
           label: 'Step 1',
-          icon: <div />, // TODO-hr
+          icon: <HorizontalTimeline.CompletedIcon />,
         },
         {
           label: 'Step 2',
-          icon: <div />, // TODO-hr
+          icon: <HorizontalTimeline.ActiveIcon />,
         },
         {
           label: 'Step 3',

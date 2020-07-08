@@ -6,17 +6,13 @@ $active-color: $D20;
 $inactive-color: $D40;
 
 .root {
-  display: table;
-  table-layout: fixed;
+  display: flex;
   width: 100%;
 }
 
 .step {
-  display: table-cell;
-}
-
-.stepInner {
   display: flex;
+  flex: 1 1 0;
   flex-direction: column;
   align-items: center;
 }
@@ -101,6 +97,10 @@ $inactive-color: $D40;
 
 .completedIcon {
   fill: $active-color;
+}
+
+.errorIcon {
+  fill: $R10;
 }
 
 @keyframes bounce {

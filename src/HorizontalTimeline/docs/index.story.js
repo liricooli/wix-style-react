@@ -37,7 +37,10 @@ const ComponentExample = () => {
           icon: <HorizontalTimeline.ActiveIcon />,
         },
         { label: 'Domain connecting' },
-        { label: 'Site is live worldwide' },
+        {
+          label: 'Site is live worldwide',
+          icon: <HorizontalTimeline.ErrorIcon />,
+        },
       ]}
     />
   );
@@ -82,7 +85,7 @@ export default {
           description({
             title: 'TODO-hr',
             text:
-              'TODO-hr This line here should briefly describe component in just a sentence or two. It should be short' +
+              ' TODO-hr This line here should briefly describe component in just a sentence or two. It should be short' +
               ' and easy to read.',
           }),
 
