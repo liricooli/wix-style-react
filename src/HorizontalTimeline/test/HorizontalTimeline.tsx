@@ -1,5 +1,3 @@
-// TODO-ht What to to with this file
-
 import * as React from 'react';
 import HorizontalTimeline from '..';
 import {horizontalTimelineTestkitFactory} from '../../../testkit';

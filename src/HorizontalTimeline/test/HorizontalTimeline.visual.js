@@ -1,5 +1,3 @@
-// TODO-ht What to to with this file
-
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import HorizontalTimeline from '../HorizontalTimeline';

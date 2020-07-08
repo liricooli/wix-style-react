@@ -73,9 +73,9 @@ export default {
         title: 'Description',
         sections: [
           description({
-            title: 'TODO-hr',
+            title: 'TODO',
             text:
-              ' TODO-hr This line here should briefly describe component in just a sentence or two. It should be short' +
+              ' TODO This line here should briefly describe component in just a sentence or two. It should be short' +
               ' and easy to read.',
           }),
 
