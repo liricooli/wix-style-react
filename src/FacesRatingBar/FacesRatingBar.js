@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './FacesRatingBar.st.css';
-import { dataHooks, facesRatingBarSizesInPx, faceIndexes } from './constants';
+import {
+  dataHooks,
+  facesRatingBarSizesInPx,
+  faceIndexes,
+  faceIconTypeMap,
+} from './constants';
 
 import FaceDisapointed from 'wix-ui-icons-common/dist/src/general/dist/components/FaceDisapointed';
 import FaceFrowning from 'wix-ui-icons-common/dist/src/general/dist/components/FaceFrowning';
@@ -27,15 +32,27 @@ class FacesRatingBar extends React.PureComponent {
   };
 
   _onFaceClick = index => {
-    this.props.onChange(index);
+    const { readOnly, onChange } = this.props;
+
+    if (!readOnly) {
+      onChange(index);
+    }
   };
 
   _onFaceMouseEnter = index => {
-    this.setState({ faceHoveredIndex: index });
+    const { readOnly } = this.props;
+
+    if (!readOnly) {
+      this.setState({ faceHoveredIndex: index });
+    }
   };
 
   _onFaceMouseLeave = () => {
-    this.setState({ faceHoveredIndex: 0 });
+    const { readOnly } = this.props;
+
+    if (!readOnly) {
+      this.setState({ faceHoveredIndex: 0 });
+    }
   };
 
   render() {
@@ -63,16 +80,19 @@ const Faces = props => {
     const IconTagName = faceIconsMap[faceIndex];
     const isSelected = props.selectedIndex === faceIndex;
     const isHovered = props.hoveredIndex === faceIndex;
+    const type = props.readOnly ? 'readOnly' : 'interactive';
+    const iconType = faceIconTypeMap[faceIndex];
 
     return (
       <div
         {...styles(
           'faceContainer',
           {
+            type: type,
             size: props.size,
             hovered: isHovered,
             selected: isSelected,
-            readOnly: props.readOnly,
+            iconType: iconType,
           },
           props,
         )}

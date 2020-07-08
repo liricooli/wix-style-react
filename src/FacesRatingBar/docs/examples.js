@@ -16,19 +16,19 @@ export const basicExample = `
 export const readOnlyExample = `
       <Layout>
         <Cell>
-          <FacesRatingBar value={1} />
+          <FacesRatingBar value={1} readOnly />
         </Cell>
         <Cell>
-          <FacesRatingBar value={2} />
+          <FacesRatingBar value={2} readOnly />
         </Cell>
         <Cell>
-          <FacesRatingBar value={3} />
+          <FacesRatingBar value={3} readOnly />
         </Cell>
         <Cell>
-          <FacesRatingBar value={4} />
+          <FacesRatingBar value={4} readOnly />
         </Cell>
         <Cell>
-          <FacesRatingBar value={5} />
+          <FacesRatingBar value={5} readOnly />
         </Cell>
       </Layout>
 `;
