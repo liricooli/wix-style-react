@@ -134,6 +134,7 @@ const Faces = ({
     const iconType = faceIconTypeMap[faceIndex];
 
     const commonProps = {
+      key: faceIndex,
       faceIndex,
       isSelected,
       iconType,
@@ -180,6 +181,7 @@ const InteractiveModeFace = ({
 
   return (
     <button
+      data-index={faceIndex}
       {...styles('buttonWrapper', {}, focusableProps)}
       onClick={() => onClick(faceIndex)}
       onMouseEnter={() => onMouseEnter(faceIndex)}
@@ -195,7 +197,6 @@ const InteractiveModeFace = ({
           selected: isSelected,
           iconType: iconType,
         })}
-        key={faceIndex}
       >
         <Tooltip content={tooltipContent} disabled={!showDescriptionValues}>
           <IconTagName
@@ -222,7 +223,6 @@ const ReadOnlyModeFace = ({ faceIndex, isSelected, iconType, size }) => {
         selected: isSelected,
         iconType: iconType,
       })}
-      key={faceIndex}
     >
       <IconTagName
         className={styles.faceIcon}

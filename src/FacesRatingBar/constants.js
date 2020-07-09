@@ -1,4 +1,6 @@
-export const dataHooks = {};
+export const dataHooks = {
+  face: 'face',
+};
 
 export const facesRatingBarSizes = {
   small: 'small',

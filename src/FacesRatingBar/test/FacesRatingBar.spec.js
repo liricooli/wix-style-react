@@ -13,7 +13,7 @@ describe(FacesRatingBar.displayName, () => {
     cleanup();
   });
 
-  it('should render', async () => {
+  it('should render the faces rating bar', async () => {
     const { driver } = render(<FacesRatingBar value={3} />);
 
     expect(await driver.exists()).toBe(true);
