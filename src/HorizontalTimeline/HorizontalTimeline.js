@@ -19,26 +19,16 @@ class HorizontalTimeline extends React.PureComponent {
           skin = skin || 'light';
           icon = icon || <HorizontalTimeline.DefaultIcon />;
 
-          const isFirstItem = i === 0;
-          const isLastItem = items.length - 1 === i;
           const isNextItemDark = items[i + 1] && items[i + 1].skin === 'dark';
 
           return (
             <div className={styles.column} key={i} style={{ width: width }}>
               <div className={styles.item}>
                 <div className={styles.topRow}>
-                  <div
-                    {...styles('line', {
-                      hidden: isFirstItem,
-                      skin,
-                    })}
-                  />
-
+                  <div {...styles('line', { skin })} />
                   <div className={styles.iconWrapper}>{icon}</div>
-
                   <div
                     {...styles('line', {
-                      hidden: isLastItem,
                       skin: isNextItemDark ? 'dark' : 'light',
                     })}
                   />

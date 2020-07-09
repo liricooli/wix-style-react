@@ -47,7 +47,8 @@
   background-color: value(D20);
 }
 
-.line:hidden {
+.column:first-child .line:first-child,
+.column:last-child .line:last-child {
   background: none;
 }
 
