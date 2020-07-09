@@ -74,7 +74,7 @@ HorizontalTimeline.ActiveIcon = () => {
   return <div className={iconsStyles.activeIcon} />;
 };
 
-HorizontalTimeline.ErrorIcon = () => {
+HorizontalTimeline.DestructiveIcon = () => {
   return <StatusAlertFilled className={iconsStyles.errorIcon} />;
 };
 
@@ -86,7 +86,8 @@ HorizontalTimeline.displayName = 'HorizontalTimeline';
 
 HorizontalTimeline.UpcomingIcon.displayName = 'HorizontalTimeline.UpcomingIcon';
 HorizontalTimeline.ActiveIcon.displayName = 'HorizontalTimeline.ActiveIcon';
-HorizontalTimeline.ErrorIcon.displayName = 'HorizontalTimeline.ErrorIcon';
+HorizontalTimeline.DestructiveIcon.displayName =
+  'HorizontalTimeline.DestructiveIcon';
 HorizontalTimeline.CompleteIcon.displayName = 'HorizontalTimeline.CompleteIcon';
 
 HorizontalTimeline.propTypes = {

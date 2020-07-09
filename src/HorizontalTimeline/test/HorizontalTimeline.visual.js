@@ -46,7 +46,7 @@ const tests = [
             },
             {
               label: 'Site is live worldwide',
-              icon: <HorizontalTimeline.ErrorIcon />,
+              icon: <HorizontalTimeline.DestructiveIcon />,
             },
           ],
         },

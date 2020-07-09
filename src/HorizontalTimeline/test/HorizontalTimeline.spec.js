@@ -30,7 +30,7 @@ describe(HorizontalTimeline.displayName, () => {
           { label: 'Domain connecting' },
           {
             label: 'Site is live worldwide',
-            icon: <HorizontalTimeline.ErrorIcon />,
+            icon: <HorizontalTimeline.DestructiveIcon />,
           },
         ]}
       />,

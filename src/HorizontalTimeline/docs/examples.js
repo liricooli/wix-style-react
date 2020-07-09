@@ -34,7 +34,7 @@ export const predefined = `
     { label: 'Domain connecting' },
     {
       label: 'Site is live worldwide',
-      icon: <HorizontalTimeline.ErrorIcon />,
+      icon: <HorizontalTimeline.DestructiveIcon />,
     },
   ]}
 />
