@@ -16,7 +16,7 @@ describe(HorizontalTimeline.displayName, () => {
   it('should render', async () => {
     const { driver } = render(
       <HorizontalTimeline
-        steps={[
+        items={[
           {
             label: 'Instructions completed',
             type: 'active',

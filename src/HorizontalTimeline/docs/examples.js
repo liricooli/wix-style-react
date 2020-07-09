@@ -1,6 +1,6 @@
 export const structure = `
 <HorizontalTimeline
-  steps={[
+  items={[
     {label: 'Instructions completed'},
     {label: 'Domain check'},
     {label: 'Site is live worldwide'},
@@ -10,7 +10,7 @@ export const structure = `
 
 export const width = `
 <HorizontalTimeline
-  steps={[
+  items={[
     {label: 'Thirty percent width', width: '30%'},
     {label: 'Width is auto'},
     {label: 'Two hundred pixels width', width: '200px'},
@@ -20,7 +20,7 @@ export const width = `
 
 export const predefined = `
 <HorizontalTimeline
-  steps={[
+  items={[
     {
       label: 'Instructions completed',
       type: 'active',

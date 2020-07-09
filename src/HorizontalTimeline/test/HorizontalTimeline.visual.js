@@ -4,12 +4,12 @@ import HorizontalTimeline from '../HorizontalTimeline';
 
 const tests = [
   {
-    describe: 'steps',
+    describe: 'items',
     its: [
       {
         it: 'defaults',
         props: {
-          steps: [
+          items: [
             { label: 'Instructions completed' },
             { label: 'Domain check' },
             { label: 'Site is live worldwide' },
@@ -17,9 +17,9 @@ const tests = [
         },
       },
       {
-        it: 'should have custom width for steps',
+        it: 'should have custom width for items',
         props: {
-          steps: [
+          items: [
             { label: 'Instructions completed', width: '50px' },
             { label: 'Domain check' },
             { label: 'Site is live worldwide', width: '5%' },
@@ -27,9 +27,9 @@ const tests = [
         },
       },
       {
-        it: 'should have different icons and types for each step',
+        it: 'should have different icons and types for each item',
         props: {
-          steps: [
+          items: [
             {
               label: 'Instructions completed',
               type: 'active',

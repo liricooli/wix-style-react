@@ -30,7 +30,7 @@ export default {
 
   // TODO provide props
   componentProps: {
-    steps: [],
+    items: [],
   },
 
   // TODO provide props
@@ -45,19 +45,19 @@ export default {
       component: (
         <div style={{ width: '200px' }}>
           <HorizontalTimeline
-            steps={[
+            items={[
               {
-                label: 'Step 1',
+                label: 'Item 1',
                 type: 'active',
                 icon: <HorizontalTimeline.CompletedIcon />,
               },
               {
-                label: 'Step 2',
+                label: 'Item 2',
                 type: 'active',
                 icon: <HorizontalTimeline.ActiveIcon />,
               },
               {
-                label: 'Step 3',
+                label: 'Item 3',
               },
             ]}
           />
@@ -70,6 +70,7 @@ export default {
         title: 'Description',
         sections: [
           description({
+            title: 'Description',
             text:
               'HorizontalTimeline is a layout component that lists events in a horizontal line. Each event can have a specific status or icon. Use it to display domain connection status.',
           }),
@@ -89,7 +90,7 @@ export default {
               source: examples.structure,
             },
             {
-              title: 'Custom steps width',
+              title: 'Custom items width',
               description:
                 'Component divides items to equal columns. If needed each column’s width can be adjusted manually.',
               source: examples.width,

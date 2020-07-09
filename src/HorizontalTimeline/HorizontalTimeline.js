@@ -4,36 +4,36 @@ import PropTypes from 'prop-types';
 import Text from '../Text';
 import styles from './HorizontalTimeline.st.css';
 import iconsStyles from './HorizontalTimelineIcons.st.css';
-import StatusCompleteFilledSmall from 'wix-ui-icons-common/StatusCompleteFilledSmall';
+import StatusCompleteFilled from 'wix-ui-icons-common/StatusCompleteFilledSmall';
 import StatusAlertFilled from 'wix-ui-icons-common/StatusAlertFilled';
 import Box from '../Box';
 
 class HorizontalTimeline extends React.PureComponent {
   render() {
-    const { steps, dataHook, className } = this.props;
+    const { items, dataHook, className } = this.props;
 
     return (
       <div {...styles('root', {}, { className })} data-hook={dataHook}>
-        {steps.map(({ label, width, type, icon }, i) => {
+        {items.map(({ label, width, type, icon }, i) => {
           width = width || 'auto';
           type = type || 'inactive';
           icon = icon || <HorizontalTimeline.UpcomingIcon />;
 
-          const isStepActive = type === 'active';
-          const isFirstStep = i === 0;
-          const isLastStep = steps.length - 1 === i;
-          const isNextStepActive =
-            steps[i + 1] && steps[i + 1].type === 'active';
+          const isItemActive = type === 'active';
+          const isFirstItem = i === 0;
+          const isLastItem = items.length - 1 === i;
+          const isNextItemActive =
+            items[i + 1] && items[i + 1].type === 'active';
 
           return (
             <div className={styles.column} key={i} style={{ width: width }}>
-              <div className={styles.step}>
+              <div className={styles.item}>
                 <div className={styles.topRow}>
                   <div
                     {...styles('line', {
-                      type: isFirstStep
+                      type: isFirstItem
                         ? 'hidden'
-                        : isStepActive
+                        : isItemActive
                         ? 'active'
                         : 'inactive',
                     })}
@@ -43,9 +43,9 @@ class HorizontalTimeline extends React.PureComponent {
 
                   <div
                     {...styles('line', {
-                      type: isLastStep
+                      type: isLastItem
                         ? 'hidden'
-                        : isNextStepActive
+                        : isNextItemActive
                         ? 'active'
                         : 'inactive',
                     })}
@@ -53,7 +53,7 @@ class HorizontalTimeline extends React.PureComponent {
                 </div>
 
                 <Box className={styles.label}>
-                  <Text size="tiny" secondary={!isStepActive} ellipsis>
+                  <Text size="tiny" secondary={!isItemActive} ellipsis>
                     {label}
                   </Text>
                 </Box>
@@ -79,12 +79,7 @@ HorizontalTimeline.ErrorIcon = () => {
 };
 
 HorizontalTimeline.CompletedIcon = () => {
-  return (
-    <StatusCompleteFilledSmall
-      size={23}
-      className={iconsStyles.completedIcon}
-    />
-  );
+  return <StatusCompleteFilled className={iconsStyles.completedIcon} />;
 };
 
 HorizontalTimeline.displayName = 'HorizontalTimeline';
@@ -100,16 +95,16 @@ HorizontalTimeline.propTypes = {
   dataHook: PropTypes.string,
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
-  /** Timeline steps */
-  steps: PropTypes.arrayOf(
+  /** Timeline items */
+  items: PropTypes.arrayOf(
     PropTypes.shape({
-      /** step's type */
+      /** item's type */
       type: PropTypes.oneOf(['active', 'inactive']),
-      /** step's text */
+      /** item's text */
       label: PropTypes.string.isRequired,
-      /** step's icon */
+      /** item's icon */
       icon: PropTypes.node,
-      /** custom width for step */
+      /** custom width for item */
       width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }),
   ).isRequired,

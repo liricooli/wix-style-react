@@ -658,7 +658,7 @@ export default {
 
   HorizontalTimeline: {
     props: {
-      steps: [
+      items: [
         { label: 'Instructions completed' },
         { label: 'Domain check' },
         { label: 'Site is live worldwide' },

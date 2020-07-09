@@ -7,17 +7,17 @@ import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
 function horizontalTimelineWithMandatoryProps() {
-  return <HorizontalTimeline steps={[
+  return <HorizontalTimeline items={[
     {
-      label: 'Step 1',
+      label: 'Item 1',
       icon: <HorizontalTimeline.CompletedIcon />,
     },
     {
-      label: 'Step 2',
+      label: 'Item 2',
       icon: <HorizontalTimeline.ActiveIcon />,
     },
     {
-      label: 'Step 3',
+      label: 'Item 3',
     }
   ]}/>;
 }
@@ -27,17 +27,17 @@ function horizontalTimelineWithAllProps() {
     <HorizontalTimeline
       dataHook="dataHook"
       className="className"
-      steps={[
+      items={[
         {
-          label: 'Step 1',
+          label: 'Item 1',
           icon: <HorizontalTimeline.CompletedIcon />,
         },
         {
-          label: 'Step 2',
+          label: 'Item 2',
           icon: <HorizontalTimeline.ActiveIcon />,
         },
         {
-          label: 'Step 3',
+          label: 'Item 3',
         }
       ]}/>
   );
