@@ -1,19 +1,19 @@
 export const structure = `
 <HorizontalTimeline
   items={[
-    {label: 'Instructions completed'},
-    {label: 'Domain check'},
-    {label: 'Site is live worldwide'},
+    { label: 'Event 1', skin: 'dark' },
+    { label: 'Event 2', skin: 'dark' },
+    { label: 'Event 3' },
   ]}
-/>
+/>;
 `;
 
 export const width = `
 <HorizontalTimeline
   items={[
-    {label: 'Thirty percent width', width: '30%'},
+    {label: 'Ten percent width', width: '10%'},
     {label: 'Width is auto'},
-    {label: 'Two hundred pixels width', width: '200px'},
+    {label: 'One hundred pixels width', width: '100px'},
   ]}
 />
 `;
@@ -22,20 +22,23 @@ export const predefined = `
 <HorizontalTimeline
   items={[
     {
-      label: 'Instructions completed',
+      label: 'Complete',
       skin: 'dark',
       icon: <HorizontalTimeline.CompleteIcon />,
     },
     {
-      label: 'Domain check',
+      label: 'Active',
       skin: 'dark',
       icon: <HorizontalTimeline.ActiveIcon />,
     },
-    { label: 'Domain connecting' },
     {
-      label: 'Site is live worldwide',
+       label: 'Blank',
+       icon: <HorizontalTimeline.DefaultIcon />,
+    },
+    {
+      label: 'Destructive',
       icon: <HorizontalTimeline.DestructiveIcon />,
     },
   ]}
-/>
+/>;
 `;

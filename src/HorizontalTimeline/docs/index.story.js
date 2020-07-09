@@ -44,21 +44,22 @@ export default {
     header({
       sourceUrl: `https://github.com/wix/wix-style-react/tree/master/src/${HorizontalTimeline.displayName}/`,
       component: (
-        <div style={{ width: '200px' }}>
+        <div style={{ width: '600px' }}>
           <HorizontalTimeline
             items={[
               {
-                label: 'Item 1',
+                label: 'Instructions completed',
                 skin: 'dark',
                 icon: <HorizontalTimeline.CompleteIcon />,
               },
               {
-                label: 'Item 2',
+                label: 'Domain check',
                 skin: 'dark',
                 icon: <HorizontalTimeline.ActiveIcon />,
               },
+              { label: 'Domain connecting' },
               {
-                label: 'Item 3',
+                label: 'Site is live worldwide',
               },
             ]}
           />
@@ -89,7 +90,7 @@ export default {
           ...[
             {
               title: 'Structure',
-              description: `Component can have any number of items. Each item’s label and line color can appear 'light' or 'dark'.`,
+              description: `Component can have any number of items. Each item's label and line color can appear dark or light by using 'skin' prop.`,
               source: examples.structure,
             },
             {
@@ -100,6 +101,7 @@ export default {
             },
             {
               title: 'Predefined Statuses',
+              description: `Component has 4 predefined status icons — default, active, complete and destructive. Use them to show the status of timeline events.`,
               source: examples.predefined,
             },
           ].map(example),
