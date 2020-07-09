@@ -55,6 +55,20 @@ class FacesRatingBar extends React.PureComponent {
     this.setState({ faceHoveredIndex: 0 });
   };
 
+  _onFaceFocus = (faceIndex, focusableProps) => {
+    // We would like to change the faces color on focus / hover
+    this.setState({ faceHoveredIndex: faceIndex });
+
+    focusableProps.focusableOnFocus();
+  };
+
+  _onFaceBlur = focusableProps => {
+    // We would like to change the faces color on focus / hover
+    this.setState({ faceHoveredIndex: 0 });
+
+    focusableProps.focusableOnBlur();
+  };
+
   _shouldShowDescriptionValues = () => {
     const { readOnly, descriptionValues } = this.props;
     let shouldShowDescriptionValues = false;
@@ -93,6 +107,8 @@ class FacesRatingBar extends React.PureComponent {
           onClick={this._onFaceClick}
           onMouseEnter={this._onFaceMouseEnter}
           onMouseLeave={this._onFaceMouseLeave}
+          handleFocus={this._onFaceFocus}
+          handleBlur={this._onFaceBlur}
         />
       </Box>
     );
@@ -109,6 +125,8 @@ const Faces = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
+  handleFocus,
+  handleBlur,
 }) => {
   return Object.values(faceIndexes).map(faceIndex => {
     const isSelected = selectedIndex === faceIndex;
@@ -133,6 +151,8 @@ const Faces = ({
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        handleFocus={handleFocus}
+        handleBlur={handleBlur}
       />
     );
   });
@@ -149,6 +169,8 @@ const InteractiveModeFace = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
+  handleFocus,
+  handleBlur,
   ...focusableProps
 }) => {
   const IconTagName = faceIconsMap[faceIndex];
@@ -162,8 +184,8 @@ const InteractiveModeFace = ({
       onClick={() => onClick(faceIndex)}
       onMouseEnter={() => onMouseEnter(faceIndex)}
       onMouseLeave={onMouseLeave}
-      onFocus={focusableProps.focusableOnFocus}
-      onBlur={focusableProps.focusableOnBlur}
+      onFocus={() => handleFocus(faceIndex, focusableProps)}
+      onBlur={() => handleBlur(focusableProps)}
     >
       <div
         {...styles('faceWrapper', {
