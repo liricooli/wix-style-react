@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 
 import styles from './FacesRatingBar.st.css';
 import {
@@ -43,27 +44,15 @@ class FacesRatingBar extends React.PureComponent {
   }
 
   _onFaceClick = index => {
-    const { readOnly, onChange } = this.props;
-
-    if (!readOnly) {
-      onChange(index);
-    }
+    this.props.onChange(index);
   };
 
   _onFaceMouseEnter = index => {
-    const { readOnly } = this.props;
-
-    if (!readOnly) {
-      this.setState({ faceHoveredIndex: index });
-    }
+    this.setState({ faceHoveredIndex: index });
   };
 
   _onFaceMouseLeave = () => {
-    const { readOnly } = this.props;
-
-    if (!readOnly) {
-      this.setState({ faceHoveredIndex: 0 });
-    }
+    this.setState({ faceHoveredIndex: 0 });
   };
 
   _shouldShowDescriptionValues = () => {
@@ -110,48 +99,116 @@ class FacesRatingBar extends React.PureComponent {
   }
 }
 
-const Faces = props => {
+const Faces = ({
+  readOnly,
+  size,
+  selectedIndex,
+  hoveredIndex,
+  showDescriptionValues,
+  descriptionValues,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+}) => {
   return Object.values(faceIndexes).map(faceIndex => {
-    const IconTagName = faceIconsMap[faceIndex];
-    const isSelected = props.selectedIndex === faceIndex;
-    const isHovered = props.hoveredIndex === faceIndex;
-    const type = props.readOnly ? 'readOnly' : 'interactive';
+    const isSelected = selectedIndex === faceIndex;
+    const isHovered = hoveredIndex === faceIndex;
     const iconType = faceIconTypeMap[faceIndex];
-    const tooltipContent = props.showDescriptionValues
-      ? props.descriptionValues[faceIndex - 1]
-      : '';
 
-    return (
+    const commonProps = {
+      faceIndex,
+      isSelected,
+      iconType,
+      size,
+    };
+
+    return readOnly ? (
+      <ReadOnlyModeFace {...commonProps} />
+    ) : (
+      <FocusableInteractiveModeFace
+        {...commonProps}
+        isHovered={isHovered}
+        showDescriptionValues={showDescriptionValues}
+        descriptionValues={descriptionValues}
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      />
+    );
+  });
+};
+
+const InteractiveModeFace = ({
+  faceIndex,
+  isSelected,
+  iconType,
+  size,
+  isHovered,
+  showDescriptionValues,
+  descriptionValues,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+  ...focusableProps
+}) => {
+  const IconTagName = faceIconsMap[faceIndex];
+  const tooltipContent = showDescriptionValues
+    ? descriptionValues[faceIndex - 1]
+    : '';
+
+  return (
+    <button
+      {...styles('buttonWrapper', {}, focusableProps)}
+      onClick={() => onClick(faceIndex)}
+      onMouseEnter={() => onMouseEnter(faceIndex)}
+      onMouseLeave={onMouseLeave}
+      onFocus={focusableProps.focusableOnFocus}
+      onBlur={focusableProps.focusableOnBlur}
+    >
       <div
-        {...styles(
-          'faceWrapper',
-          {
-            type: type,
-            size: props.size,
-            hovered: isHovered,
-            selected: isSelected,
-            iconType: iconType,
-          },
-          props,
-        )}
+        {...styles('faceWrapper', {
+          type: 'interactive',
+          size: size,
+          hovered: isHovered,
+          selected: isSelected,
+          iconType: iconType,
+        })}
         key={faceIndex}
-        onClick={() => props.onClick(faceIndex)}
-        onMouseEnter={() => props.onMouseEnter(faceIndex)}
-        onMouseLeave={props.onMouseLeave}
       >
-        <Tooltip
-          content={tooltipContent}
-          disabled={!props.showDescriptionValues}
-        >
+        <Tooltip content={tooltipContent} disabled={!showDescriptionValues}>
           <IconTagName
             className={styles.faceIcon}
-            width={facesRatingBarSizesInPx[props.size]}
-            height={facesRatingBarSizesInPx[props.size]}
+            width={facesRatingBarSizesInPx[size]}
+            height={facesRatingBarSizesInPx[size]}
           />
         </Tooltip>
       </div>
-    );
-  });
+    </button>
+  );
+};
+
+const FocusableInteractiveModeFace = withFocusable(InteractiveModeFace);
+
+const ReadOnlyModeFace = ({ faceIndex, isSelected, iconType, size }) => {
+  const IconTagName = faceIconsMap[faceIndex];
+
+  return (
+    <div
+      {...styles('faceWrapper', {
+        type: 'readOnly',
+        size: size,
+        selected: isSelected,
+        iconType: iconType,
+      })}
+      key={faceIndex}
+    >
+      <IconTagName
+        className={styles.faceIcon}
+        width={facesRatingBarSizesInPx[size]}
+        height={facesRatingBarSizesInPx[size]}
+      />
+    </div>
+  );
 };
 
 FacesRatingBar.displayName = 'FacesRatingBar';

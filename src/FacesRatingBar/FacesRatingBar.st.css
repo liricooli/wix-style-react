@@ -1,6 +1,11 @@
 :import {
+  -st-from: "wix-ui-core/hocs.st.css";
+  -st-named: Focusable;
+}
+
+:import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: D20, D10-20, B10, B40, R05, R40, Y05, Y40, G05, G40;
+  -st-named: D20, D10-20, B10, B40, R05, R40, Y05, Y40, G05, G40, F00;
 }
 
 :import {
@@ -11,13 +16,28 @@
 .root {
 }
 
+.buttonWrapper {
+  -st-extends: Focusable;
+  outline: none;
+  min-width: 0;
+  border: none;
+  padding: 0;
+  background: none;
+  font-size: 0;
+}
+
 .faceWrapper {
   -st-states: size(enum(small, medium)), type(enum(readOnly, interactive)), hovered, selected, iconType(enum(disapointed, frowning, neutral, smiling, grining));
   margin-right: value(spacing12);
 }
 
-.faceWrapper:last-child {
+.buttonWrapper:last-child .faceWrapper{
   margin-right: 0;
+}
+
+.buttonWrapper:focus-visible .faceWrapper{
+  box-shadow: 0 0 0 3px value(F00);
+  border-radius: 2px;
 }
 
 .faceIcon {
