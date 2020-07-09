@@ -15,8 +15,22 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
-### Internal
+### Added
+- `<Table.Subtoolbar/>` - add subcomponent [#5624](https://github.com/wix/wix-style-react/pull/5624)
+- `<DropdownBase/>` - Add isOpen to render function [#5651](https://github.com/wix/wix-style-react/pull/5651)
+
+### Changed
+- `<FormField/>`- stylable migration [#5648](https://github.com/wix/wix-style-react/pull/5648) and [#5650](https://github.com/wix/wix-style-react/pull/5650)
+
+## 8.28.0 - 2020-07-06
+### Changed
 - `<Heading/>` - use Ellipsis internally [#5636](https://github.com/wix/wix-style-react/pull/5636)
+- `<ScrollableContainer/>` - Adding support for passing ref in using `React.forwardRef` [#5635](https://github.com/wix/wix-style-react/pull/5635)
+- `<LabeledElement/>`- small css fix [#5645](https://github.com/wix/wix-style-react/pull/5645)
+
+### Changed
+- `<RadioGroup/>` - Migrating to stylable [#5631](https://github.com/wix/wix-style-react/pull/5631)
+
 
 ## 8.27.1 - 2020-07-02
 ### Fixed
