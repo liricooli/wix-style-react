@@ -21,7 +21,7 @@ class HorizontalTimeline extends React.PureComponent {
           const isNextItemDark = items[i + 1] && items[i + 1].skin === 'dark';
 
           return (
-            <div className={styles.column} key={i} style={{ width: width }}>
+            <div className={styles.column} key={i} style={{ width }}>
               <div className={styles.item}>
                 <div className={styles.topRow}>
                   <div {...styles('line', { skin })} />
@@ -76,7 +76,13 @@ HorizontalTimeline.propTypes = {
   dataHook: PropTypes.string,
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
-  /** Timeline items */
+    /**
+     * Timeline items
+     *  * `skin ` - Affects the text and line colors, can be one of: 'dark' | 'light'.
+     *  * `label` -  Text displayed below the icon.
+     *  * `icon ` - An icon representing a timeline item.
+     *  * `width ` - The width of the timeline item, can be percentage or pixels.
+     */
   items: PropTypes.arrayOf(
     PropTypes.shape({
       /** item's skin */
