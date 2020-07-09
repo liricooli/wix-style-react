@@ -15,16 +15,11 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
-
+import * as examples from './examples';
 import HorizontalTimeline from '..';
-import { code as baseCode } from 'wix-storybook-utils/dist/src/Sections';
 
-const code = config =>
-  baseCode({
-    components: allComponents,
-    compact: false,
-    ...config,
-  });
+const example = config =>
+  baseExample({ components: { ...allComponents }, ...config });
 
 export default {
   category: storySettings.category,
@@ -91,55 +86,19 @@ export default {
             {
               title: 'Structure',
               description: `Component can have any number of items. Each item’s label and line color can appear neutral or highlighted as 'active'.`,
-              source: `
-              <HorizontalTimeline
-                steps={[
-                  {label: 'Instructions completed'},
-                  {label: 'Domain check'},
-                  {label: 'Site is live worldwide'},
-                ]}
-              />
-          `,
+              source: examples.structure,
             },
             {
               title: 'Custom steps width',
               description:
                 'Component divides items to equal columns. If needed each column’s width can be adjusted manually.',
-              source: `
-              <HorizontalTimeline
-                steps={[
-                  {label: 'Thirty percent width', width: '30%'},
-                  {label: 'Width is auto'},
-                  {label: 'Two hundred pixels width', width: '200px'},
-                ]}
-              />
-          `,
+              source: examples.width,
             },
             {
               title: 'Predefined Statuses',
-              source: `
-              <HorizontalTimeline
-                steps={[
-                  {
-                    label: 'Instructions completed',
-                    type: 'active',
-                    icon: <HorizontalTimeline.CompletedIcon />,
-                  },
-                  {
-                    label: 'Domain check',
-                    type: 'active',
-                    icon: <HorizontalTimeline.ActiveIcon />,
-                  },
-                  { label: 'Domain connecting' },
-                  {
-                    label: 'Site is live worldwide',
-                    icon: <HorizontalTimeline.ErrorIcon />,
-                  },
-                ]}
-              />
-          `,
+              source: examples.predefined,
             },
-          ].map(code),
+          ].map(example),
         ],
       }),
 
