@@ -29,12 +29,10 @@ export default {
   component: HorizontalTimeline,
   componentPath: '..',
 
-  // TODO provide props
   componentProps: {
     items: [],
   },
 
-  // TODO provide props
   exampleProps: {
     // Put here presets of props, for more info:
     // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
@@ -58,9 +56,7 @@ export default {
                 icon: <HorizontalTimeline.ActiveIcon />,
               },
               { label: 'Domain connecting' },
-              {
-                label: 'Site is live worldwide',
-              },
+              { label: 'Site is live worldwide' },
             ]}
           />
         </div>

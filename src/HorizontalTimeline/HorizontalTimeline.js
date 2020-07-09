@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Text from '../Text';
 import styles from './HorizontalTimeline.st.css';
 import iconsStyles from './HorizontalTimelineIcons.st.css';

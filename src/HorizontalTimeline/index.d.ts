@@ -3,8 +3,8 @@ import * as React from 'react';
 export type HorizontalTimelineItemSkin = 'dark' | 'light';
 
 interface HorizontalTimelineItem {
-  skin?: HorizontalTimelineItemSkin;
   label: string;
+  skin?: HorizontalTimelineItemSkin;
   icon?: React.ReactNode;
   width?: React.CSSProperties['width'];
 }

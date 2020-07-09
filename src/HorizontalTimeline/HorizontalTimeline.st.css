@@ -36,7 +36,7 @@
 .line {
   height: 1px;
   flex-grow: 1;
-  -st-states: skin(enum(dark, light)), hidden;
+  -st-states: skin(enum(dark, light));
 }
 
 .line:skin(light) {

@@ -5,7 +5,7 @@ export const structure = `
     { label: 'Event 2', skin: 'dark' },
     { label: 'Event 3' },
   ]}
-/>;
+/>
 `;
 
 export const width = `
@@ -40,5 +40,5 @@ export const predefined = `
       icon: <HorizontalTimeline.DestructiveIcon />,
     },
   ]}
-/>;
+/>
 `;
