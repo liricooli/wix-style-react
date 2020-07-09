@@ -1,7 +1,9 @@
 import * as React from 'react';
 
+export type HorizontalTimelineStepType = 'active' | 'inactive';
+
 interface HorizontalTimelineStep {
-  type?: 'active' | 'inactive';
+  type?: HorizontalTimelineStepType;
   label: string;
   icon?: React.ReactNode;
   width?: React.CSSProperties['width'];
@@ -13,7 +15,9 @@ export interface HorizontalTimelineProps {
   steps: HorizontalTimelineStep[];
 }
 
-export default class HorizontalTimeline extends React.PureComponent<HorizontalTimelineProps> {
+export default class HorizontalTimeline extends React.PureComponent<
+  HorizontalTimelineProps
+> {
   static UpcomingIcon: React.FC;
   static ActiveIcon: React.FC;
   static ErrorIcon: React.FC;

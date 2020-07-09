@@ -55,6 +55,7 @@ const javascriptFiles = [
   ['Grid.bundle.min.js', 8],
   ['Heading.bundle.min.js', 33],
   ['Highlighter.bundle.min.js', 4],
+  ['HorizontalTimeline.bundle.min.js', 40],
   ['IconButton.bundle.min.js', 14],
   ['Image.bundle.min.js', 5],
   ['ImageViewer.bundle.min.js', 58],
@@ -137,7 +138,6 @@ const javascriptFiles = [
   ['VerticalTabs.bundle.min.js', 38],
   ['VerticalTabsItem.bundle.min.js', 38],
   ['WarningIndicator.bundle.min.js', 40],
-  ['HorizontalTimeline.bundle.min.js', 40],
 ];
 
 const cssFiles = [
@@ -184,6 +184,7 @@ const cssFiles = [
   ['GoogleAddressInput.min.css', 12],
   ['GoogleAddressInputWithLabel.min.css', 12],
   ['Grid.min.css', 4],
+  ['HorizontalTimeline.min.css', 1],
   ['ImageViewer.min.css', 3],
   ['InfoIcon.min.css', 2],
   ['Input.min.css', 6],
@@ -241,7 +242,6 @@ const cssFiles = [
   ['Tooltip.min.css', 2],
   ['VariableInput.min.css', 2],
   ['WarningIndicator.min.css', 2],
-  ['HorizontalTimeline.min.css', 1],
 ];
 
 const getJS = () =>

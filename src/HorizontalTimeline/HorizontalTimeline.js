@@ -6,6 +6,7 @@ import styles from './HorizontalTimeline.st.css';
 import iconsStyles from './HorizontalTimelineIcons.st.css';
 import StatusCompleteFilledSmall from 'wix-ui-icons-common/StatusCompleteFilledSmall';
 import StatusAlertFilled from 'wix-ui-icons-common/StatusAlertFilled';
+import Box from '../Box';
 
 class HorizontalTimeline extends React.PureComponent {
   render() {
@@ -45,15 +46,11 @@ class HorizontalTimeline extends React.PureComponent {
                   />
                 </div>
 
-                {/* TODO-hr Fix ellipsis behaviour */}
-                <Text
-                  className={styles.label}
-                  size="tiny"
-                  secondary={!isStepActive}
-                  ellipsis
-                >
-                  {label}
-                </Text>
+                <Box className={styles.label}>
+                  <Text size="tiny" secondary={!isStepActive} ellipsis>
+                    {label}
+                  </Text>
+                </Box>
               </div>
             </div>
           );
