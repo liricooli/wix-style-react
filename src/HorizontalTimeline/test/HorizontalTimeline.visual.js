@@ -42,7 +42,7 @@ const tests = [
             },
             {
               label: 'Domain connecting',
-              icon: <HorizontalTimeline.UpcomingIcon />,
+              icon: <HorizontalTimeline.DefaultIcon />,
             },
             {
               label: 'Site is live worldwide',

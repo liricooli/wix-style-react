@@ -17,7 +17,7 @@ class HorizontalTimeline extends React.PureComponent {
         {items.map(({ label, width, type, icon }, i) => {
           width = width || 'auto';
           type = type || 'inactive';
-          icon = icon || <HorizontalTimeline.UpcomingIcon />;
+          icon = icon || <HorizontalTimeline.DefaultIcon />;
 
           const isItemActive = type === 'active';
           const isFirstItem = i === 0;
@@ -66,7 +66,7 @@ class HorizontalTimeline extends React.PureComponent {
   }
 }
 
-HorizontalTimeline.UpcomingIcon = () => {
+HorizontalTimeline.DefaultIcon = () => {
   return <div className={iconsStyles.upcomingIcon} />;
 };
 
@@ -84,7 +84,7 @@ HorizontalTimeline.CompleteIcon = () => {
 
 HorizontalTimeline.displayName = 'HorizontalTimeline';
 
-HorizontalTimeline.UpcomingIcon.displayName = 'HorizontalTimeline.UpcomingIcon';
+HorizontalTimeline.DefaultIcon.displayName = 'HorizontalTimeline.DefaultIcon';
 HorizontalTimeline.ActiveIcon.displayName = 'HorizontalTimeline.ActiveIcon';
 HorizontalTimeline.DestructiveIcon.displayName =
   'HorizontalTimeline.DestructiveIcon';
