@@ -21,5 +21,5 @@ export default class HorizontalTimeline extends React.PureComponent<
   static UpcomingIcon: React.FC;
   static ActiveIcon: React.FC;
   static ErrorIcon: React.FC;
-  static CompletedIcon: React.FC;
+  static CompleteIcon: React.FC;
 }

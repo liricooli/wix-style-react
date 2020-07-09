@@ -11,6 +11,7 @@ import {
   playground,
   api,
   testkit,
+  columns,
 } from 'wix-storybook-utils/Sections';
 
 import { storySettings } from '../test/storySettings';
@@ -49,7 +50,7 @@ export default {
               {
                 label: 'Item 1',
                 type: 'active',
-                icon: <HorizontalTimeline.CompletedIcon />,
+                icon: <HorizontalTimeline.CompleteIcon />,
               },
               {
                 label: 'Item 2',
@@ -69,11 +70,13 @@ export default {
       tab({
         title: 'Description',
         sections: [
-          description({
-            title: 'Description',
-            text:
-              'HorizontalTimeline is a layout component that lists events in a horizontal line. Each event can have a specific status or icon. Use it to display domain connection status.',
-          }),
+          columns([
+            description({
+              title: 'Description',
+              text:
+                'HorizontalTimeline is a layout component that lists events in a horizontal line. Each event can have a specific status or icon. Use it to display domain connection status.',
+            }),
+          ]),
 
           importExample(
             "import { HorizontalTimeline } from 'wix-style-react';",

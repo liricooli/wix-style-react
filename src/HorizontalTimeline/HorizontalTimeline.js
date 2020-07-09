@@ -78,8 +78,8 @@ HorizontalTimeline.ErrorIcon = () => {
   return <StatusAlertFilled className={iconsStyles.errorIcon} />;
 };
 
-HorizontalTimeline.CompletedIcon = () => {
-  return <StatusCompleteFilled className={iconsStyles.completedIcon} />;
+HorizontalTimeline.CompleteIcon = () => {
+  return <StatusCompleteFilled className={iconsStyles.completeIcon} />;
 };
 
 HorizontalTimeline.displayName = 'HorizontalTimeline';
@@ -87,8 +87,7 @@ HorizontalTimeline.displayName = 'HorizontalTimeline';
 HorizontalTimeline.UpcomingIcon.displayName = 'HorizontalTimeline.UpcomingIcon';
 HorizontalTimeline.ActiveIcon.displayName = 'HorizontalTimeline.ActiveIcon';
 HorizontalTimeline.ErrorIcon.displayName = 'HorizontalTimeline.ErrorIcon';
-HorizontalTimeline.CompletedIcon.displayName =
-  'HorizontalTimeline.CompletedIcon';
+HorizontalTimeline.CompleteIcon.displayName = 'HorizontalTimeline.CompleteIcon';
 
 HorizontalTimeline.propTypes = {
   /** Applied as data-hook HTML attribute that can be used in the tests */

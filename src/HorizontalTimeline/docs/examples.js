@@ -24,7 +24,7 @@ export const predefined = `
     {
       label: 'Instructions completed',
       type: 'active',
-      icon: <HorizontalTimeline.CompletedIcon />,
+      icon: <HorizontalTimeline.CompleteIcon />,
     },
     {
       label: 'Domain check',

@@ -10,7 +10,7 @@ function horizontalTimelineWithMandatoryProps() {
   return <HorizontalTimeline items={[
     {
       label: 'Item 1',
-      icon: <HorizontalTimeline.CompletedIcon />,
+      icon: <HorizontalTimeline.CompleteIcon />,
     },
     {
       label: 'Item 2',
@@ -30,7 +30,7 @@ function horizontalTimelineWithAllProps() {
       items={[
         {
           label: 'Item 1',
-          icon: <HorizontalTimeline.CompletedIcon />,
+          icon: <HorizontalTimeline.CompleteIcon />,
         },
         {
           label: 'Item 2',

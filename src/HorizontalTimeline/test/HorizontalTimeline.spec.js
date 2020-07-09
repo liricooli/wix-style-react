@@ -20,7 +20,7 @@ describe(HorizontalTimeline.displayName, () => {
           {
             label: 'Instructions completed',
             type: 'active',
-            icon: <HorizontalTimeline.CompletedIcon />,
+            icon: <HorizontalTimeline.CompleteIcon />,
           },
           {
             label: 'Domain check',
