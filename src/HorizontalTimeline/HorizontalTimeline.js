@@ -31,8 +31,11 @@ class HorizontalTimeline extends React.PureComponent {
                 <div className={styles.topRow}>
                   <div
                     {...styles('line', {
-                      active: isStepActive,
-                      hidden: isFirstStep,
+                      type: isFirstStep
+                        ? 'hidden'
+                        : isStepActive
+                        ? 'active'
+                        : 'inactive',
                     })}
                   />
 
@@ -40,8 +43,11 @@ class HorizontalTimeline extends React.PureComponent {
 
                   <div
                     {...styles('line', {
-                      active: isNextStepActive,
-                      hidden: isLastStep,
+                      type: isLastStep
+                        ? 'hidden'
+                        : isNextStepActive
+                        ? 'active'
+                        : 'inactive',
                     })}
                   />
                 </div>
@@ -109,7 +115,6 @@ HorizontalTimeline.propTypes = {
   ).isRequired,
 };
 
-// TODO find a way describe default values for steps config
 HorizontalTimeline.defaultProps = {};
 
 export default HorizontalTimeline;

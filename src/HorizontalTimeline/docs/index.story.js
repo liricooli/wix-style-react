@@ -28,7 +28,7 @@ export default {
   component: HorizontalTimeline,
   componentPath: '..',
 
-  // TODO provide props -- maybe remove "playground" section?
+  // TODO provide props
   componentProps: {
     steps: [],
   },

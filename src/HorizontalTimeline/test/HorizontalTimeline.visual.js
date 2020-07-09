@@ -20,9 +20,9 @@ const tests = [
         it: 'should have custom width for steps',
         props: {
           steps: [
-            { label: 'Instructions completed', width: '25%' },
+            { label: 'Instructions completed', width: '50px' },
             { label: 'Domain check' },
-            { label: 'Site is live worldwide', width: '25%' },
+            { label: 'Site is live worldwide', width: '5%' },
           ],
         },
       },
@@ -47,26 +47,6 @@ const tests = [
             {
               label: 'Site is live worldwide',
               icon: <HorizontalTimeline.ErrorIcon />,
-            },
-          ],
-        },
-      },
-      {
-        it: 'should show long text width ellipsis',
-        props: {
-          steps: [
-            {
-              label:
-                'Long long-long-long-long-long-long-long-text in percentage container',
-              width: '5%',
-            },
-            {
-              label: 'Domain check',
-            },
-            {
-              label:
-                'Long long-long-long-long-long-long-long-text in static container',
-              width: '50px',
             },
           ],
         },

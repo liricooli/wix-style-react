@@ -1,6 +1,5 @@
 :import {
   -st-from: '../Foundation/stylable/colors.st.css';
-  /* TODO Make some names to them */
   -st-named: D20, D50;
 }
 
@@ -39,16 +38,18 @@
 .line {
   height: 1px;
   flex-grow: 1;
-  background-color: value(D50);
-  /* TODO Is there conflict with "active" pseudoclass or not? */
-  -st-states: active, hidden;
+  -st-states: type(enum(active, inactive, hidden));
 }
 
-.line:active {
+.line:type(inactive) {
+  background-color: value(D50);
+}
+
+.line:type(active) {
   background-color: value(D20);
 }
 
-.line:hidden {
+.line:type(hidden) {
   background: none;
 }
 
