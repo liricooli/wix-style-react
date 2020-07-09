@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-export type HorizontalTimelineItemType = 'active' | 'inactive';
+export type HorizontalTimelineItemSkin = 'dark' | 'light';
 
 interface HorizontalTimelineItem {
-  type?: HorizontalTimelineItemType;
+  skin?: HorizontalTimelineItemSkin;
   label: string;
   icon?: React.ReactNode;
   width?: React.CSSProperties['width'];

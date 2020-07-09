@@ -49,12 +49,12 @@ export default {
             items={[
               {
                 label: 'Item 1',
-                type: 'active',
+                skin: 'dark',
                 icon: <HorizontalTimeline.CompleteIcon />,
               },
               {
                 label: 'Item 2',
-                type: 'active',
+                skin: 'dark',
                 icon: <HorizontalTimeline.ActiveIcon />,
               },
               {
@@ -89,7 +89,7 @@ export default {
           ...[
             {
               title: 'Structure',
-              description: `Component can have any number of items. Each item’s label and line color can appear neutral or highlighted as 'active'.`,
+              description: `Component can have any number of items. Each item’s label and line color can appear 'light' or 'dark'.`,
               source: examples.structure,
             },
             {

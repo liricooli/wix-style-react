@@ -27,17 +27,17 @@ const tests = [
         },
       },
       {
-        it: 'should have different icons and types for each item',
+        it: 'should have different icons and skins for each item',
         props: {
           items: [
             {
               label: 'Instructions completed',
-              type: 'active',
+              skin: 'dark',
               icon: <HorizontalTimeline.CompleteIcon />,
             },
             {
               label: 'Domain check',
-              type: 'active',
+              skin: 'dark',
               icon: <HorizontalTimeline.ActiveIcon />,
             },
             {

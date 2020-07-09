@@ -36,18 +36,18 @@
 .line {
   height: 1px;
   flex-grow: 1;
-  -st-states: type(enum(active, inactive, hidden));
+  -st-states: skin(enum(dark, light)), hidden;
 }
 
-.line:type(inactive) {
+.line:skin(light) {
   background-color: value(D50);
 }
 
-.line:type(active) {
+.line:skin(dark) {
   background-color: value(D20);
 }
 
-.line:type(hidden) {
+.line:hidden {
   background: none;
 }
 

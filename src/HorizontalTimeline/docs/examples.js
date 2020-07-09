@@ -23,12 +23,12 @@ export const predefined = `
   items={[
     {
       label: 'Instructions completed',
-      type: 'active',
+      skin: 'dark',
       icon: <HorizontalTimeline.CompleteIcon />,
     },
     {
       label: 'Domain check',
-      type: 'active',
+      skin: 'dark',
       icon: <HorizontalTimeline.ActiveIcon />,
     },
     { label: 'Domain connecting' },

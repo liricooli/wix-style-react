@@ -14,16 +14,14 @@ class HorizontalTimeline extends React.PureComponent {
 
     return (
       <div {...styles('root', {}, { className })} data-hook={dataHook}>
-        {items.map(({ label, width, type, icon }, i) => {
+        {items.map(({ label, width, skin, icon }, i) => {
           width = width || 'auto';
-          type = type || 'inactive';
+          skin = skin || 'light';
           icon = icon || <HorizontalTimeline.DefaultIcon />;
 
-          const isItemActive = type === 'active';
           const isFirstItem = i === 0;
           const isLastItem = items.length - 1 === i;
-          const isNextItemActive =
-            items[i + 1] && items[i + 1].type === 'active';
+          const isNextItemDark = items[i + 1] && items[i + 1].skin === 'dark';
 
           return (
             <div className={styles.column} key={i} style={{ width: width }}>
@@ -31,11 +29,8 @@ class HorizontalTimeline extends React.PureComponent {
                 <div className={styles.topRow}>
                   <div
                     {...styles('line', {
-                      type: isFirstItem
-                        ? 'hidden'
-                        : isItemActive
-                        ? 'active'
-                        : 'inactive',
+                      hidden: isFirstItem,
+                      skin,
                     })}
                   />
 
@@ -43,17 +38,14 @@ class HorizontalTimeline extends React.PureComponent {
 
                   <div
                     {...styles('line', {
-                      type: isLastItem
-                        ? 'hidden'
-                        : isNextItemActive
-                        ? 'active'
-                        : 'inactive',
+                      hidden: isLastItem,
+                      skin: isNextItemDark ? 'dark' : 'light',
                     })}
                   />
                 </div>
 
                 <Box className={styles.label}>
-                  <Text size="tiny" secondary={!isItemActive} ellipsis>
+                  <Text size="tiny" secondary={skin === 'light'} ellipsis>
                     {label}
                   </Text>
                 </Box>
@@ -98,8 +90,8 @@ HorizontalTimeline.propTypes = {
   /** Timeline items */
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      /** item's type */
-      type: PropTypes.oneOf(['active', 'inactive']),
+      /** item's skin */
+      skin: PropTypes.oneOf(['dark', 'light']),
       /** item's text */
       label: PropTypes.string.isRequired,
       /** item's icon */
