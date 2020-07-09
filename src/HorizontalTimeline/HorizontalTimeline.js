@@ -7,6 +7,13 @@ import StatusCompleteFilled from 'wix-ui-icons-common/StatusCompleteFilled';
 import StatusAlertFilled from 'wix-ui-icons-common/StatusAlertFilled';
 import Box from '../Box';
 
+const textPropsBySkinMap = {
+  dark: {},
+  light: { secondary: true },
+};
+
+const defaultItemSkin = 'light';
+
 class HorizontalTimeline extends React.PureComponent {
   render() {
     const { items, dataHook, className } = this.props;
@@ -15,10 +22,10 @@ class HorizontalTimeline extends React.PureComponent {
       <div {...styles('root', {}, { className })} data-hook={dataHook}>
         {items.map(({ label, width, skin, icon }, i) => {
           width = width || 'auto';
-          skin = skin || 'light';
+          skin = skin || defaultItemSkin;
           icon = icon || <HorizontalTimeline.DefaultIcon />;
 
-          const isNextItemDark = items[i + 1] && items[i + 1].skin === 'dark';
+          const nextItemSkin = items[i + 1] && items[i + 1].skin;
 
           return (
             <div className={styles.column} key={i} style={{ width }}>
@@ -28,13 +35,13 @@ class HorizontalTimeline extends React.PureComponent {
                   <div className={styles.iconWrapper}>{icon}</div>
                   <div
                     {...styles('line', {
-                      skin: isNextItemDark ? 'dark' : 'light',
+                      skin: nextItemSkin ? nextItemSkin : defaultItemSkin,
                     })}
                   />
                 </div>
 
                 <Box className={styles.label}>
-                  <Text size="tiny" secondary={skin === 'light'} ellipsis>
+                  <Text size="tiny" ellipsis {...textPropsBySkinMap[skin]}>
                     {label}
                   </Text>
                 </Box>
@@ -76,13 +83,13 @@ HorizontalTimeline.propTypes = {
   dataHook: PropTypes.string,
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
-    /**
-     * Timeline items
-     *  * `skin ` - Affects the text and line colors, can be one of: 'dark' | 'light'.
-     *  * `label` -  Text displayed below the icon.
-     *  * `icon ` - An icon representing a timeline item.
-     *  * `width ` - The width of the timeline item, can be percentage or pixels.
-     */
+  /**
+   * Timeline items
+   *  * `skin ` - Affects the text and line colors, can be one of: 'dark' | 'light'.
+   *  * `label` -  Text displayed below the icon.
+   *  * `icon ` - An icon representing a timeline item.
+   *  * `width ` - The width of the timeline item, can be percentage or pixels.
+   */
   items: PropTypes.arrayOf(
     PropTypes.shape({
       /** item's skin */
