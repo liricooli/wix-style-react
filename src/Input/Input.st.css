@@ -168,6 +168,10 @@
 }
 
 /* Menu Arrow */
+.root:size(small) .menuArrow svg {
+  transform: translateY(-1px);
+}
+
 .root:size(small) .menuArrow {
   margin: auto 6px;
 }
@@ -184,6 +188,10 @@
   margin: auto 6px auto 12px;
 }
 
+.root:size(medium) .menuArrow svg {
+  transform: translateY(-2px);
+}
+
 .root:size(large) .menuArrow {
   margin: auto 6px auto 12px;
 }
@@ -194,6 +202,10 @@
 
 .root:size(large):roundInput .menuArrow {
   margin: auto 12px;
+}
+
+.root:size(large) .menuArrow svg {
+  transform: translateY(-2px);
 }
 
 .root:not(:disabled) .menuArrow {
