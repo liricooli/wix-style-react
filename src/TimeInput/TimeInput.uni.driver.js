@@ -3,10 +3,10 @@ import { testkit } from '../Input/Input.uni.driver';
 import { tickerDriverFactory } from '../Input/Ticker/Ticker.uni.driver';
 import { dataHooks } from './constants';
 
-export const timeInputUniDriverFactory = base => {
+export const timeInputUniDriverFactory = (base, body) => {
   const amPmIndicator = () =>
     base.$(`[data-hook="${dataHooks.amPmIndicator}"]`);
-  const input = testkit(base);
+  const input = testkit(base.$(`[data-hook="${dataHooks.input}"]`), body);
   const inputTicker = tickerDriverFactory(base);
 
   return {

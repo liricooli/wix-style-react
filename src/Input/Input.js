@@ -131,7 +131,10 @@ class Input extends Component {
       this._isClearFeatureEnabled && !!value && !status && !disabled;
 
     const visibleSuffixCount = getVisibleSuffixCount({
-      status: hideStatusSuffix ? undefined : status,
+      status:
+        !hideStatusSuffix &&
+        status &&
+        ['error', 'warning', 'loading'].includes(status),
       statusMessage,
       disabled,
       isClearButtonVisible,

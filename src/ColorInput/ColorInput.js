@@ -6,6 +6,7 @@ import { Hash } from './components/Hash';
 import { ColorViewer } from './components/ColorViewer';
 
 import { validateHex, normalizeHexInput } from './hex-helpers';
+import Box from '../Box';
 
 class ColorInput extends React.Component {
   static displayName = 'ColorInput';
@@ -118,7 +119,7 @@ class ColorInput extends React.Component {
       popoverProps,
     } = this.props;
     return (
-      <Input.IconAffix>
+      <Box verticalAlign="middle">
         <ColorViewer
           value={value}
           active={active}
@@ -137,7 +138,7 @@ class ColorInput extends React.Component {
           placeholder={placeholder}
           popoverProps={popoverProps}
         />
-      </Input.IconAffix>
+      </Box>
     );
   };
 

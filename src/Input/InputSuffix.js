@@ -35,6 +35,7 @@ const InputSuffix = ({
   menuArrow,
   suffix,
   tooltipPlacement,
+  className,
 }) => {
   const suffixes = [
     {
@@ -67,7 +68,12 @@ const InputSuffix = ({
     },
     {
       // Custom Suffix
-      component: key => React.cloneElement(suffix, { key }),
+      component: key =>
+        React.isValidElement(suffix) ? (
+          React.cloneElement(suffix, { key })
+        ) : (
+          <div key={key}>{suffix}</div>
+        ),
       isVisible: suffixRules.customSuffix({ suffix }),
     },
     {
@@ -76,6 +82,7 @@ const InputSuffix = ({
         <Affix key={key} className={classes.menuArrow}>
           <div
             key={key}
+            data-hook={dataHooks.menuArrow}
             className={classes.menuArrow}
             disabled={disabled}
             onClick={onIconClicked}
@@ -92,7 +99,7 @@ const InputSuffix = ({
   ].filter(isFixVisible);
 
   return (
-    <Box className={classes.suffixes}>
+    <Box dataHook={dataHooks.suffixes} className={className}>
       {suffixes.map((s, key) => s.component(key))}
     </Box>
   );

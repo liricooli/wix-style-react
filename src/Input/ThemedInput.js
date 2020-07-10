@@ -4,12 +4,31 @@ import classes from './Input.st.css';
 import DATA_ATTR from './DataAttr';
 
 class ThemedInput extends Input {
-  getDataAttr = ({ dataHook, size, status }) => {
-    return {
-      'data-hook': dataHook,
-      [DATA_ATTR.DATA_SIZE]: size,
-      [DATA_ATTR.DATA_STATUS]: status,
-    };
+  // For testing purposes only
+  getDataAttr = () => {
+    const {
+      size,
+      status,
+      prefix,
+      disabled,
+      forceHover,
+      forceFocus,
+      noLeftBorderRadius,
+      noRightBorderRadius,
+    } = this.props;
+
+    return Object.fromEntries(
+      Object.entries({
+        [DATA_ATTR.SIZE]: size,
+        [DATA_ATTR.STATUS]: status,
+        [DATA_ATTR.PREFIX]: !!prefix,
+        [DATA_ATTR.DISABLED]: !!disabled,
+        [DATA_ATTR.HOVER]: !!forceHover,
+        [DATA_ATTR.FOCUS]: !!(forceFocus || this.state.focus),
+        [DATA_ATTR.LEFTBORDERRADIUS]: !!noLeftBorderRadius,
+        [DATA_ATTR.RIGHTBORDERRADIUS]: !!noRightBorderRadius,
+      }).filter(entry => !!entry[1]),
+    );
   };
 
   render() {
@@ -36,7 +55,7 @@ class ThemedInput extends Input {
           'root',
           {
             size,
-            focus: forceFocus || this.state.focus,
+            hasFocus: forceFocus || this.state.focus,
             status,
             forceHover,
             readOnly,
@@ -49,7 +68,8 @@ class ThemedInput extends Input {
           { className },
         )}
         dir={rtl ? 'rtl' : null}
-        {...this.getDataAttr({ dataHook, size, status })}
+        data-hook={dataHook}
+        {...this.getDataAttr()}
       >
         {super.render({ placeholder })}
       </div>

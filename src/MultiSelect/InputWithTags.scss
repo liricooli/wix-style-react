@@ -44,6 +44,10 @@
   }
 }
 
+.suffixes {
+  height: 100%;
+}
+
 .hiddenDiv {
   @include FontRoman();
   visibility: hidden;

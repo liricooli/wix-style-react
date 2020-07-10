@@ -4,6 +4,8 @@
 }
 
 .root {
+  -st-states: disabled;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -11,5 +13,5 @@
 }
 
 .root:disabled {
-  color: valiue(D10-30);
+  color: value(D10-30);
 }

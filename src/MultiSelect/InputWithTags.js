@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import isUndefined from 'lodash/isUndefined';
 import SortableList from '../SortableList/SortableList';
 import defaultDndStyles from '../dnd-styles';
+import { InputContext } from '../Input/InputContext';
 
 class InputWithTags extends React.Component {
   constructor(props) {
@@ -179,12 +180,15 @@ class InputWithTags extends React.Component {
 
         {(isSelectMode || status) && (
           <div className={suffixStyles}>
-            <InputSuffix
-              disabled={disabled}
-              status={status}
-              statusMessage={statusMessage}
-              menuArrow={isSelectMode}
-            />
+            <InputContext.Provider value={{ inSuffix: true }}>
+              <InputSuffix
+                className={styles.suffixes}
+                disabled={disabled}
+                status={status}
+                statusMessage={statusMessage}
+                menuArrow={isSelectMode}
+              />
+            </InputContext.Provider>
           </div>
         )}
       </div>

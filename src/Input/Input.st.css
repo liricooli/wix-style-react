@@ -14,7 +14,7 @@
 }
 
 .root {
-  -st-states: size(enum(small, medium, large)), focus,
+  -st-states: size(enum(small, medium, large)), hasFocus,
               status(enum(error, warning)), forceHover, readOnly,
               disabled, withSelection, roundInput,
               noLeftBorderRadius, noRightBorderRadius;
@@ -94,7 +94,7 @@
 }
 
 /* Focus */
-.root:focus {
+.root:hasFocus {
   outline: none;
   border-color: value(B10);
   box-shadow: 0 0 0 3px value(F00);
@@ -106,7 +106,7 @@
   box-shadow: none;
 }
 
-.root:status(error):focus {
+.root:status(error):hasFocus {
   border-color: value(R10);
   box-shadow: 0 0 0 3px value(R30);
 }
@@ -116,13 +116,13 @@
   box-shadow: none;
 }
 
-.root:status(warning):focus {
+.root:status(warning):hasFocus {
   border-color: value(Y10);
   box-shadow: 0 0 0 3px value(Y30);
 }
 
 /* Hover */
-.root:hover:not(:focus):not(:disabled),
+.root:hover:not(:hasFocus):not(:disabled),
 .root:forceHover:not(.disabled) {
   background-color: value(B50);
 }
