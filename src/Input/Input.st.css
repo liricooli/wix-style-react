@@ -168,6 +168,34 @@
 }
 
 /* Menu Arrow */
+.root:size(small) .menuArrow {
+  margin: auto 6px;
+}
+
+.root:size(medium) .menuArrow {
+  margin: auto 6px;
+}
+
+.root:size(medium):roundInput .menuArrow {
+  margin: auto 12px auto 6px;
+}
+
+[dir="rtl"] .root:size(medium):roundInput .menuArrow {
+  margin: auto 6px auto 12px;
+}
+
+.root:size(large) .menuArrow {
+  margin: auto 6px auto 12px;
+}
+
+[dir="rtl"] .root:size(large) .menuArrow {
+  margin: auto 12px auto 6px;
+}
+
+.root:size(large):roundInput .menuArrow {
+  margin: auto 12px;
+}
+
 .root:not(:disabled) .menuArrow {
   color: value(B10);
 }

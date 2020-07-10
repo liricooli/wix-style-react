@@ -79,17 +79,15 @@ const InputSuffix = ({
     {
       // Dropdown Arrow
       component: key => (
-        <Affix key={key} className={classes.menuArrow}>
-          <div
-            key={key}
-            data-hook={dataHooks.menuArrow}
-            className={classes.menuArrow}
-            disabled={disabled}
-            onClick={onIconClicked}
-          >
-            <DropDownArrow />
-          </div>
-        </Affix>
+        <div
+          key={key}
+          data-hook={dataHooks.menuArrow}
+          className={classes.menuArrow}
+          disabled={disabled}
+          onClick={onIconClicked}
+        >
+          <DropDownArrow />
+        </div>
       ),
       isVisible: suffixRules.menuArrow({
         menuArrow,

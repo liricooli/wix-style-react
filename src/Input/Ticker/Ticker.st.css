@@ -4,8 +4,36 @@
 }
 
 .root {
-  margin: auto 6px;
+  -st-states: size(enum(small, medium, large)), roundInput;
   user-select: none;
+}
+
+.root:size(small) {
+  margin: auto 0;
+}
+
+.root:size(medium) {
+  margin: auto 0;
+}
+
+.root:size(medium):roundInput {
+  margin: auto 6px auto 0;
+}
+
+[dir="rtl"] .root:size(medium):roundInput {
+  margin: auto 0 auto 6px;
+}
+
+.root:size(large) {
+  margin: auto 0 auto 6px;
+}
+
+[dir="rtl"] .root:size(large) {
+  margin: auto 6px auto 0;
+}
+
+.root:size(large):roundInput {
+  margin: auto 6px;
 }
 
 .up {
@@ -18,7 +46,7 @@
 
 .up,
 .down {
-  padding: 5px 0;
+  padding: 4px 6px;
   color: value(B10);
   cursor: pointer;
 }
