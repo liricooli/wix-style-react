@@ -11,7 +11,7 @@
 // Override <Input>'s default focus style
 .input div {
   background-color: transparent !important;
-  border-color: transparent !important;
+  border: none !important;
   box-shadow: none !important;
 }
 
@@ -32,15 +32,33 @@
   position: absolute;
   top: 0;
   right: 6px;
-  height: 34px;
+  height: 100%;
   box-sizing: border-box;
+  display: flex;
 
-  &.sizeSmall {
-    height: 30px;
+  .menuArrow {
+    color: $B10;
+    margin: auto 6px;
+
+    svg {
+      transform: translateY(-1px);
+    }
   }
 
-  &.sizeLarge {
-    height: 42px;
+  .disabled & .menuArrow {
+    color: $D10-30;
+  }
+
+  .sizeSmall & .menuArrow {
+    margin: auto 6px;
+  }
+
+  .sizeLarge & .menuArrow {
+    margin: auto 6px;
+  }
+
+  .statusIndicator {
+    margin: auto 6px;
   }
 }
 
@@ -127,7 +145,7 @@
 }
 
 .customSuffix {
-  margin: 0 6px;
+  margin: auto 6px;
 }
 
 .tagsContainer {
@@ -154,7 +172,7 @@
 
 @include withRTL() {
   .tag {
-    margin-left: 0px;
+    margin-left: 0;
     margin-right: 7px;
   }
 }

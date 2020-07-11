@@ -16,7 +16,7 @@
 .root {
   -st-states: size(enum(small, medium, large)), hasFocus,
               status(enum(error, warning)), forceHover, readOnly,
-              disabled, withSelection, roundInput,
+              disabled, roundInput,
               noLeftBorderRadius, noRightBorderRadius;
   -st-mixin: boxSizingMixin, borderRadiusMixin(6px);
   position: relative;
@@ -52,12 +52,7 @@
 }
 
 .root:size(small) .input {
-  /*height: 28px;*/
   padding: 5px 6px;
-}
-
-.root:size(small):withSelection .input {
-  /*height: 26px;*/
 }
 
 .root:size(medium),
@@ -66,12 +61,7 @@
 }
 
 .root:size(medium) .input {
-  /*height: 34px;*/
   padding: 5px 6px;
-}
-
-.root:size(medium):withSelection {
-  /*height: 32px;*/
 }
 
 .root:size(large),
@@ -80,7 +70,6 @@
 }
 
 .root:size(large) .input {
-  /*height: 42px;*/
   padding: 8px 6px;
 }
 

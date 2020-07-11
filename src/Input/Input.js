@@ -132,9 +132,7 @@ class Input extends Component {
 
     const visibleSuffixCount = getVisibleSuffixCount({
       status:
-        !hideStatusSuffix &&
-        status &&
-        ['error', 'warning', 'loading'].includes(status),
+        !hideStatusSuffix && ['error', 'warning', 'loading'].includes(status),
       statusMessage,
       disabled,
       isClearButtonVisible,

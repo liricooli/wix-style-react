@@ -45,7 +45,6 @@ class ThemedInput extends Input {
       noLeftBorderRadius,
       noRightBorderRadius,
       readOnly,
-      withSelection,
     } = this.props;
 
     const placeholder = this.props.placeholder;
@@ -60,7 +59,6 @@ class ThemedInput extends Input {
             forceHover,
             readOnly,
             disabled,
-            withSelection,
             roundInput,
             noRightBorderRadius,
             noLeftBorderRadius,
