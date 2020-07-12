@@ -11,6 +11,7 @@
     "./dist/**/*.global.scss",
     "./src/**/*.scss"
   ],
+
   "files": [
     "dist",
     "src",
