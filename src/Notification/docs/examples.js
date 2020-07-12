@@ -69,3 +69,27 @@ export const ellipsis = `
   </Cell>
 </Layout>
 `;
+
+export const controlled = `
+() => {
+
+const [show, setShow] = React.useState(false)
+
+return <Layout>
+    <Cell><Button onClick={() => setShow(!show)}>Show / Hide Notification</Button></Cell>
+    <Cell>
+    <Notification onClose={() => setShow(false)}  theme='error' show={show}>
+    <Notification.TextLabel ellipsis={false}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua
+    </Notification.TextLabel>
+    <Notification.ActionButton onClick={() => console.log('Clicked!')}>
+      button
+    </Notification.ActionButton>
+    <Notification.CloseButton />
+  </Notification>
+  </Cell>
+  <Cell><Text>text text text text text text text text text text text text text text text text text text text text text text</Text></Cell>
+</Layout>
+};
+`;

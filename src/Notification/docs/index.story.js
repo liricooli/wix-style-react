@@ -129,6 +129,12 @@ export default {
             subtitle: `Label text can either has ellipsis (default) or not.`,
             source: examples.ellipsis,
           }),
+
+          code({
+            title: 'Controlled Notification',
+            compact: true,
+            source: examples.controlled,
+          }),
         ],
       }),
 
