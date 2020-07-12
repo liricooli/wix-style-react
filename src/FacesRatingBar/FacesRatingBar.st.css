@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: D20, D10-20, B10, B40, R05, R40, Y05, Y40, G05, G40, F00;
+  -st-named: D20, D10-20, B10, B40, R05, R40, Y05, Y40, G05, G50, F00;
 }
 
 :import {
@@ -101,14 +101,14 @@
 }
 
 .faceWrapper:type(readOnly):selected:iconType(smiling) {
-  background-color: value(G40);
+  background-color: value(G50);
 }
 .faceWrapper:type(readOnly):selected:iconType(smiling) .faceIcon {
   color: value(G05);
 }
 
 .faceWrapper:type(readOnly):selected:iconType(grining) {
-  background-color: value(G40);
+  background-color: value(G50);
 }
 .faceWrapper:type(readOnly):selected:iconType(grining) .faceIcon {
   color: value(G05);

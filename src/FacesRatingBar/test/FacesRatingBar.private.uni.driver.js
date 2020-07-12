@@ -8,8 +8,7 @@ export const facesRatingBarPrivateDriverFactory = (base, body) => {
     getCurrentTooltipDriver: index => {
       const currentTooltipSelector = `[data-tooltip-index="${index}"]`;
       const element = base.$(currentTooltipSelector);
-      const tooltipDriver = tooltipDriverFactory(element, body);
-      return tooltipDriver;
+      return tooltipDriverFactory(element, body);
     },
   };
 };
