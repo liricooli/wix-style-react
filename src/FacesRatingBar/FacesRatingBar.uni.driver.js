@@ -14,10 +14,9 @@ export const facesRatingBarDriverFactory = (base, body) => {
     getSelectedRating: async () => {
       let selectedRatingIndex = 0;
 
-      const facesDataSelectedPromise = (await getFaces()).map(item =>
+      const facesDataSelectedArr = await (await getFaces()).map(item =>
         item.attr('data-selected'),
       );
-      const facesDataSelectedArr = await facesDataSelectedPromise;
 
       // The faces indexes are from 1 to 5 while the array indexes are from 0 to 4
       selectedRatingIndex =
