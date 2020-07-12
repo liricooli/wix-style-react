@@ -18,4 +18,15 @@ describe(FacesRatingBar.displayName, () => {
 
     expect(await driver.exists()).toBe(true);
   });
+
+  it('expect onChange to be called after selecting a rating', async () => {
+    const onChange = jest.fn();
+    const { driver } = render(<FacesRatingBar value={0} onChange={onChange} />);
+
+    expect(await driver.getSelectedRating()).toEqual(0);
+
+    await driver.selectRating(4);
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(4);
+  });
 });

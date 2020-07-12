@@ -181,7 +181,9 @@ const InteractiveModeFace = ({
 
   return (
     <button
+      data-hook={dataHooks.face}
       data-index={faceIndex}
+      data-selected={isSelected}
       {...styles('buttonWrapper', {}, focusableProps)}
       onClick={() => onClick(faceIndex)}
       onMouseEnter={() => onMouseEnter(faceIndex)}
@@ -217,6 +219,8 @@ const ReadOnlyModeFace = ({ faceIndex, isSelected, iconType, size }) => {
 
   return (
     <div
+      data-hook={dataHooks.face}
+      data-selected={isSelected}
       {...styles('faceWrapper', {
         type: 'readOnly',
         size: size,

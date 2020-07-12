@@ -2,7 +2,7 @@ import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { dataHooks } from './constants';
 
 export const facesRatingBarDriverFactory = (base, body) => {
-  // const getFaces = async () => await base.$$(`[data-hook="${dataHooks.face}"]`)
+  const getFaces = () => base.$$(`[data-hook="${dataHooks.face}"]`);
 
   return {
     ...baseUniDriverFactory(base, body),
@@ -11,6 +11,19 @@ export const facesRatingBarDriverFactory = (base, body) => {
     selectRating: async id => base.$(`[data-index="${id}"]`).click(),
 
     /** Return the selected rating (a number between 0 to 5) */
-    // getSelectedRating: async () => await getFaces().find(element => element.attr('data-selected') === 'true'), // todo: change this
+    getSelectedRating: async () => {
+      let selectedRatingIndex = 0;
+
+      const facesDataSelectedPromise = (await getFaces()).map(item =>
+        item.attr('data-selected'),
+      );
+      const facesDataSelectedArr = await facesDataSelectedPromise;
+
+      // The faces indexes are from 1 to 5 while the array indexes are from 0 to 4
+      selectedRatingIndex =
+        facesDataSelectedArr.findIndex(selected => selected === 'true') + 1;
+
+      return selectedRatingIndex;
+    },
   };
 };
