@@ -1,9 +1,15 @@
 import { facesRatingBarDriverFactory as publicDriverFactory } from '../FacesRatingBar.uni.driver';
+import { tooltipDriverFactory } from '../../Tooltip/Tooltip.uni.driver';
 
 export const facesRatingBarPrivateDriverFactory = (base, body) => {
   return {
     ...publicDriverFactory(base, body),
 
-    // Add here driver methods that considered "private"
+    getCurrentTooltipDriver: index => {
+      const currentTooltipSelector = `[data-tooltip-index="${index}"]`;
+      const element = base.$(currentTooltipSelector);
+      const tooltipDriver = tooltipDriverFactory(element, body);
+      return tooltipDriver;
+    },
   };
 };

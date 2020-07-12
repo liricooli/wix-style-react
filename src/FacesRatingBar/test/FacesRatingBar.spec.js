@@ -29,4 +29,38 @@ describe(FacesRatingBar.displayName, () => {
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(4);
   });
+
+  describe('description values', () => {
+    it.each([
+      { index: 1, text: 'Strong Negative' },
+      { index: 2, text: 'Negative' },
+      { index: 3, text: 'Neutral' },
+      { index: 4, text: 'Positive' },
+      { index: 5, text: 'Strong Positive' },
+    ])(
+      'should display the correct description value on hover',
+      async descriptionValue => {
+        const descriptionValues = [
+          'Strong Negative',
+          'Negative',
+          'Neutral',
+          'Positive',
+          'Strong Positive',
+        ];
+        const { driver } = render(
+          <FacesRatingBar
+            value={descriptionValue.index}
+            descriptionValues={descriptionValues}
+          />,
+        );
+
+        const tooltipDriver = await driver.getCurrentTooltipDriver(
+          descriptionValue.index,
+        );
+        expect(await tooltipDriver.getTooltipText()).toEqual(
+          descriptionValue.text,
+        );
+      },
+    );
+  });
 });

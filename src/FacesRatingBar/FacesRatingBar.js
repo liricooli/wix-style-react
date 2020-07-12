@@ -200,7 +200,11 @@ const InteractiveModeFace = ({
           iconType: iconType,
         })}
       >
-        <Tooltip content={tooltipContent} disabled={!showDescriptionValues}>
+        <Tooltip
+          data-tooltip-index={faceIndex}
+          content={tooltipContent}
+          disabled={!showDescriptionValues}
+        >
           <IconTagName
             className={styles.faceIcon}
             width={facesRatingBarSizesInPx[size]}
